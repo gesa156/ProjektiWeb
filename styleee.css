@@ -101,10 +101,20 @@ overflow: hidden;
 }
 
 .cc .from-box{
-
-
 width: 100%;
 padding: 40px;
+}
+
+.cc .from-box.login{
+   /* display: none;
+*/
+}
+
+.cc .from-box.register {
+    position: absolute;
+    left: 400px; /* Adjust the positioning based on your layout */
+    transform: translateX(0);
+    box-shadow: none;
 }
 
 
