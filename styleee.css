@@ -9,12 +9,11 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('https://www.mandai.com/content/dam/mandai/about-mandai/Masthead-1920x894-v2.jpg') no-repeat;
+    background: url('home.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-
-
 }
+
 
 .header {
     position: fixed;

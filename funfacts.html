@@ -9,7 +9,7 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: url('https://i.pinimg.com/originals/57/a1/cf/57a1cf2c30d763224f62dcfb0d527166.jpg');
+      background: url('black.png');
     }
 
     .container {
@@ -63,9 +63,37 @@
     .zoom-wrapper:hover {
       transform: scale(1.05);
     }
+
+
+   button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color:gray;
+      color:black;
+      border: none;
+      border-radius: 5px;
+      
+    }
+
+
+    button:hover {
+      background-color: white;
+    }
+.bb{
+
+  justify-content: right;
+
+}
+
+    
   </style>
 </head>
 <body>
+
+  <div class="bb">
+    <button onclick="goBack()">Go Back</button>
+  </div>
   <div class="container">
     <h1>Fun Facts</h1>
     <div class="image-gallery">
@@ -119,5 +147,14 @@
       </div>
     </div>
   </div>
+
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+
 </body>
 </html>
