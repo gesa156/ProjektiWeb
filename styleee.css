@@ -84,7 +84,6 @@ body{
 }
 
 .cc{
-
 position: relative;
 width: 400px;
 height: 440px;
@@ -92,30 +91,57 @@ background: transparent;
 border: 2px solid rgba(255,255,255,5);
 border-radius: 20px;
 backdrop-filter: blur(20px);
-box-shadow: 0 0 30px black;
+box-shadow: 0 0 30px rgba(0,0,0, .5);
 display: flex;
 justify-content: center;
 align-items: center;
 overflow: hidden;
+transform: scale(0);
+transition: height 2s ease;
+}
+
+.cc.active-popup{
+    transform: scale(1);
 
 }
 
-.cc .from-box{
+.cc .form-box.login{
+
+    display: none;
+}
+
+.cc.active{
+    height: 520px;
+}
+
+.cc .form-box{
 width: 100%;
 padding: 40px;
 }
 
-.cc .from-box.login{
-   /* display: none;
-*/
+.cc .form-box.login{
+        transition: transform .18s ease;
+        transform: translateX(0);
+      }
+
+.cc.active .form-box.login{
+transition: none;
+ transform: translateX(-400px);
+   
 }
 
-.cc .from-box.register {
+.cc .form-box.register {
     position: absolute;
-    left: 400px; /* Adjust the positioning based on your layout */
-    transform: translateX(0);
-    box-shadow: none;
+    transition: none;
+    transform: translateX(400px);
+
 }
+.cc.active .form-box.register{
+    transition: transform.18s ease;
+    transform: translateX(0);
+       
+    }
+
 
 
 .cc .icon-close{
@@ -134,7 +160,7 @@ border-bottom-left-radius: 20px;
 z-index: 1;
 
 }
-.from-box h2{
+.form-box h2{
 
     font-size: 2em;
     text-align: center;
@@ -251,5 +277,9 @@ font-weight: 600;
 
 
 }
-
+.form-box.register h2 {
+    font-size: 24px;
+    color:black;
+    nav-down: auto; 
+}
 
