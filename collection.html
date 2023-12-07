@@ -1,72 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collections</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            text-align: center;
-        }
-
-        header {
-            padding: 20px;
-            background-color: #3498db;
-            color: white;
-        }
-
-        #slideshow {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-        }
-    </style>
+    <title>Collection</title>
+    <link rel="stylesheet" href="collectionstyle.css">
 </head>
 <body>
-    <div id="kontenti">
-        <header>
-            <h2>Slide Show: Shfaqja e Imazheve</h2>
-            <img name="mySlide" id="slideshow" alt="Slideshow Image" />
-        </header>
-        <button onclick="ndrroImg()">Next</button>
-    </div>
-    <script>
-        var i = 0;
-        var imgArray = [
-            "https://cdn-prd.content.metamorphosis.com/wp-content/uploads/sites/6/2022/12/shutterstock_781327003-1.jpg",
-            "https://pbs.twimg.com/media/CjojP_nWEAA517S.jpg",
-            "imgS/foto2.png",
-            "imgS/foto3.png",
-            "imgS/foto4.png"
-        ];
-
-        function ndrroImg() {
-            document.getElementById('slideshow').src = imgArray[i];
-            if (i < imgArray.length - 1) {
-                i++;
-            } else {
-                i = 0;
-            }
-        }
-
-        window.addEventListener('load', ndrroImg);
-    </script>
+    <header class="header">
+        <h2 class="logo">Butterfly</h2>
+        <nav class="navigation">
+            <a href="collection.html">Collections</a>
+            <a href="funfacts.html">Fun Facts</a>
+            <a href="Home.html">Home</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+    <main>
+        <div class="bgfoto">
+            <input type="text" placeholder="Search" style="height: 20px;">
+            <button class="butoni_bg"><img src="search.png" alt=""></button>
+        </div>
+        <div class="latestphoto">
+            <h3>Mammals</h3>
+            <p>Page <button value="1">1</button> of 5</p>
+        </div>
+        <div class="fotografit">
+            <div class="rubrika">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg" alt="" class="img">
+                <div class="caption"> <b>Wolf</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://files.worldwildlife.org/wwfcmsprod/images/Brown_Bear_/hero_small/7h2u6tj3h3_brownbear_hero.jpg" alt="" class="img">
+                <div class="caption"> <b>Bear</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://th-thumbnailer.cdn-si-edu.com/XIhsUgi95b0G3mpm15ZlxGFBFPE=/800x800/filters:focal(800x602:801x603)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/7f/0b/7f0be491-c840-425e-90f1-916424359e9f/p1159704_web.jpg" alt="" class="img">
+                <div class="caption"> <b>Polar Bear</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://www.fauna-flora.org/wp-content/uploads/2023/05/GettyImages-625850102-scaled-1.jpg" alt="" class="img">
+                <div class="caption"> <b>Chimpanzee</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://files.worldwildlife.org/wwfcmsprod/images/Tiger_resting_Bandhavgarh_National_Park_India/hero_small/6aofsvaglm_Medium_WW226365.jpg" alt="" class="img">
+                <div class="caption"> <b>Tiger</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://i.natgeofe.com/k/e7ba8001-23ac-457f-aedb-abd5f2fdda62/moms5.png?w=1084.125&h=745.5" alt="" class="img">
+                <div class="caption"> <b>Elephant</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://cdn.britannica.com/89/162189-050-9CFBC925/Kavango-Zambezi-Transfrontier-Conservation-Area-rhino-species-March-2012.jpg" alt="" class="img">
+                <div class="caption"> <b>Rhinoceros</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://www.mos.org/sites/dev-elvis.mos.org/files/images/main/uploads/slides/Pulsar-Bat-Header.jpg" alt="" class="img">
+                <div class="caption"> <b>Bat</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://cdn.britannica.com/29/150929-050-547070A1/lion-Kenya-Masai-Mara-National-Reserve.jpg" alt="" class="img">
+                <div class="caption"> <b>Lion</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Vulpes_vulpes_ssp_fulvus.jpg" alt="" class="img">
+                <div class="caption"> <b>Fox</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://assets.wwf.org.au/image/upload/f_auto/q_auto/v1674791331/elcom/416/img-panda-in-tree-1000px.jpg" alt="" class="img">
+                <div class="caption"> <b>Panda</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://media.graphassets.com/resize=height:360,width:500/output=format:webp/9JrMeDVZTbO7AKMsI5NL" alt="" class="img">
+                <div class="caption"> <b>Cat</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://s.abcnews.com/images/US/giraffe-gty-jt-201014_1602687277857_hpMain_16x9_1600.jpg" alt="" class="img">
+                <div class="caption"> <b>Giraffe</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://www.antarctica.gov.au/site/assets/files/45670/ia40342.1200x630.jpg" alt="" class="img">
+                <div class="caption"> <b>Blue Whale</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://e360.yale.edu/assets/site/_1500x1500_fit_center-center_80/Botswana-Hippos_Alamy-Small.jpg" alt="" class="img">
+                <div class="caption"> <b>Hippo</b> <br>cap.</div>
+            </div>
+            <div class="rubrika">
+                <img src="https://cdn.creatureandcoagency.com/uploads/2014/06/Bottlenose-dolphin-facts-3.jpg" alt="" class="img">
+                <div class="caption"> <b>Dolphin</b> <br>cap.</div>
+            </div>
+        </div>
+        <div class="permifooter">
+            <div class="previous">
+                <button class="btn_prev_next" style="background-color: rgb(34, 255, 244);">Previous</button>
+            </div>
+            <div class="numrat">
+                <button class="btn" style="background-color: lightseagreen;">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">4</button>
+            </div>
+            <div class="NextPage">
+                <button class="btn_prev_next" style="background-color: lightseagreen;">Next Page</button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
