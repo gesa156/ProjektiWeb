@@ -188,3 +188,20 @@ main {
     height: 30px;
     border: inset 0px;
 }
+
+.numrat {
+    display: flex;
+}
+
+.numrat button {
+    width: 30px; /* Set the desired width */
+    height: 30px; /* Set the desired height */
+    margin: 5px; /* Adjust margin as needed */
+    border: none;
+    background-color: transparent; /* Set the initial background color */
+    cursor: pointer;
+}
+
+.numrat button.active {
+    background-color: lightseagreen; /* Set the active background color */
+}

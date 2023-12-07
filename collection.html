@@ -4,6 +4,80 @@
     <title>Collection</title>
     <link rel="stylesheet" href="collectionstyle.css">
 </head>
+<script>
+    function btnClicked(button) {
+            // Remove the 'active' class from all buttons
+            const buttons = document.querySelectorAll('.numrat button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Add the 'active' class to the clicked button
+            button.classList.add('active');
+        }
+function goBack() {
+    window.history.back();
+  }
+  function goForward() {
+    window.history.forward();
+}
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get references to the buttons and content
+        const nextButton = document.querySelector('.NextPage button');
+        const pageButtons = document.querySelectorAll('.numrat button');
+        const fotografit = document.querySelector('.fotografit');
+
+        // Set initial page
+        let currentPage = 1;
+
+        // Array of image URLs for each page
+        const pageImages = {
+            1: [
+            '.latestphoto;'
+            ],
+            2: [
+            '.latestphoto;'
+            ],
+            // Repeat for other pages
+        };
+
+        // Add click event listeners
+        nextButton.addEventListener('click', nextPage);
+        pageButtons.forEach(button => button.addEventListener('click', goToPage));
+
+        // Function to handle Next Page button click
+        function nextPage() {
+            if (currentPage < 5) { // Assuming there are 5 pages in total
+                currentPage++;
+                updateContent();
+            }
+        }
+
+        // Function to handle numbered button click
+        function goToPage() {
+            const pageNumber = parseInt(this.value);
+            if (pageNumber >= 1 && pageNumber <= 5) { // Assuming there are 5 pages in total
+                currentPage = pageNumber;
+                updateContent();
+            }
+        }
+
+        // Function to update content based on the current page
+        function updateContent() {
+            // Get the array of image URLs for the current page
+            const imagesForCurrentPage = pageImages[currentPage];
+
+            // Check if there are images for the current page
+            if (imagesForCurrentPage && imagesForCurrentPage.length > 0) {
+                // Generate HTML for the images
+                const imagesHTML = imagesForCurrentPage.map(imageURL => `<div class="rubrika"><img src="${imageURL}" alt="" class="img"></div>`).join('');
+
+                // Set the HTML to the fotografit element
+                fotografit.innerHTML = imagesHTML;
+            }
+        }
+    });
+</script>
 <body>
     <header class="header">
         <h2 class="logo">Butterfly</h2>
@@ -91,16 +165,16 @@
         </div>
         <div class="permifooter">
             <div class="previous">
-                <button class="btn_prev_next" style="background-color: rgb(34, 255, 244);">Previous</button>
+                <button onclick="goBack()">Go Back</button>
             </div>
             <div class="numrat">
-                <button class="btn" style="background-color: lightseagreen;">1</button>
-                <button class="btn">2</button>
-                <button class="btn">3</button>
-                <button class="btn">4</button>
+                <button onclick="btnClicked(this)">1</button>
+                <button onclick="btnClicked(this)">2</button>
+                <button onclick="btnClicked(this)">3</button>
+                <button onclick="btnClicked(this)">4</button>
             </div>
             <div class="NextPage">
-                <button class="btn_prev_next" style="background-color: lightseagreen;">Next Page</button>
+                <button onclick="goForward()">Next Page</button>
             </div>
         </div>
     </main>
