@@ -1,3 +1,5 @@
+
+
 const cc = document.querySelector('.cc');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
@@ -21,21 +23,43 @@ btnPopup.addEventListener('click',()=>{
 });
 
 
-function validateForm(event) {
-    event.preventDefault(); // Prevent the form from submitting by default
+function validateForm() {
+    let email = document.getElementById('emailInput').value;
+    let password = document.getElementById('passwordInput').value;
 
-    // You can add your validation logic here
-    var email = document.getElementById('emailInput').value;
-    var password = document.getElementById('passwordInput').value;
+    let emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
+    let passwordRegex = /^.{8,16}$/;
 
-    // Example validation: Check if email and password are not empty
     if (email.trim() === '' || password.trim() === '') {
         alert('Please enter both email and password.');
+    } else if (!emailRegex.test(email)) {
+        alert('Email is not in the correct format.');
+    } else if (!passwordRegex.test(password)) {
+        alert('Password should be between 8 and 16 characters.');
     } else {
-        // If validation passes, you can submit the form or perform other actions
         alert('Form submitted successfully!');
-        // Uncomment the following line to submit the form
-        // document.getElementById('loginForm').submit();
+    }
+}
+
+function validateForm() {
+    let username = document.getElementById('usernameInput').value;
+    let email = document.getElementById('emailInput').value;
+    let password = document.getElementById('passwordInput').value;
+
+    let usernameRegex = /^[A-Za-z0-9_]+$/;
+    let emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
+    let passwordRegex = /^.{8,16}$/;
+
+    if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
+        alert('Please enter username, email, and password.');
+    } else if (!usernameRegex.test(username)) {
+        alert('Username is not in the correct format.');
+    } else if (!emailRegex.test(email)) {
+        alert('Email is not in the correct format.');
+    } else if (!passwordRegex.test(password)) {
+        alert('Password should be between 8 and 16 characters.');
+    } else {
+        alert('Form submitted successfully!');
     }
 }
 
