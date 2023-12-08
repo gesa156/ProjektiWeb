@@ -1,29 +1,25 @@
-
-
 const cc = document.querySelector('.cc');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
 const btnPopup = document.querySelector('.btnLogin-popup');
 
-
-registerLink.addEventListener('click',()=>{
+registerLink.addEventListener('click', () => {
     cc.classList.add('active');
-    
+    document.querySelector('.login').classList.add('hidden');
+    document.querySelector('.register').classList.remove('hidden');
 });
 
-loginLink.addEventListener('click',()=>{
+loginLink.addEventListener('click', () => {
     cc.classList.remove('active');
-    
+    document.querySelector('.login').classList.remove('hidden');
+    document.querySelector('.register').classList.add('hidden');
 });
 
-
-btnPopup.addEventListener('click',()=>{
+btnPopup.addEventListener('click', () => {
     cc.classList.add('active-popup');
-    
 });
 
-
-function validateForm() {
+function validateLoginForm() {
     let email = document.getElementById('emailInput').value;
     let password = document.getElementById('passwordInput').value;
 
@@ -37,14 +33,15 @@ function validateForm() {
     } else if (!passwordRegex.test(password)) {
         alert('Password should be between 8 and 16 characters.');
     } else {
-        alert('Form submitted successfully!');
+        alert('Login successful!');
     }
 }
 
-function validateForm() {
-    let username = document.getElementById('usernameInput').value;
+function validateRegisterForm() {
+    let username = document.getElementById('Username').value;
     let email = document.getElementById('emailInput').value;
     let password = document.getElementById('passwordInput').value;
+    let agreeCheckbox = document.getElementById('agreeCheckbox').checked;
 
     let usernameRegex = /^[A-Za-z0-9_]+$/;
     let emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
@@ -58,9 +55,10 @@ function validateForm() {
         alert('Email is not in the correct format.');
     } else if (!passwordRegex.test(password)) {
         alert('Password should be between 8 and 16 characters.');
+    } else if (!agreeCheckbox) {
+        alert('Please agree to the terms and conditions.');
     } else {
-        alert('Form submitted successfully!');
+        alert('Registration successful!');
     }
 }
-
 
