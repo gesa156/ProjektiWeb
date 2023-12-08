@@ -4,109 +4,105 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fun Facts</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: gray;
-    }
+  
+</head>
 
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      text-align: center;
-    }
-
-    h1 {
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  font-family: 'Times New Roman', serif;
-  background-color: black;
-  padding: 10px;
-  border-radius: 8px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-    .image-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
-    .zoom-wrapper {
-      margin: 10px;
-      height: 300px;
-      width: calc(33.33% - 20px);
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease-in-out;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .zoom-wrapper img {
-      width: 100%;
-      height: 70%; 
-      object-fit: cover;
-      border-radius: 16px;
-    }
-
-    .caption {
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 0 0 16px 16px;
-    }
-
-    .zoom-wrapper:hover {
-      transform: scale(1.05);
-    }
+<style>
 
 
-   button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color:black;
-      color:white;
-      border: none;
-      border-radius: 5px;
-      
-    }
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+  }
 
 
-    button:hover {
-      background-color: gray;
-    }
+
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .zoom-wrapper {
+    margin: 10px;
+    height: 300px;
+    width: calc(33.33% - 20px);
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .zoom-wrapper img {
+    width: 100%;
+    height: 70%; 
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .caption {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .zoom-wrapper:hover {
+    transform: scale(1.05);
+  }
+
+
+ button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color:black;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    
+  }
+
+
+  button:hover {
+    background-color: gray;
+  }
 .bb{
 
-  justify-content: right;
+justify-content: right;
 
 }
 
 
 footer {
-    background-color: black;
-    color: white;
-    padding: 20px;
-}
-
-.f{
- display: flex;
- justify-content: space-between;
-
+  background-color: black;
+  color: white;
+  padding: 20px;
+  
   
 }
 
+.f{
+display: flex;
+justify-content: space-between;
 
+
+}
 
 .footermain{
 
-    display: flex;
-    color: white;
-    justify-content: space-between;
+  display: flex;
+  color: white;
+  justify-content: space-between;
 }
 
 .footerleft{
@@ -115,34 +111,31 @@ footer {
 text-align: left;
 width: 300px;
 
- }
- .footercenter >p{
-    text-align: left;
-    justify-content: center;
-   
-    
-    
+}
+.footercenter >p{
+  text-align: left;
+  justify-content: center;
+ 
+  
+  
 }
 .footerright p{
-    text-align: right;
+  text-align: right;
 }
 
 .fundi {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  color: white;
 }
 
-    
-  </style>
-</head>
+
+</style>
 <body>
 
-  <div class="bb">
-    <button onclick="goBack()">Go Back</button>
-  </div>
+   
   <div class="container">
     <h1>Fun Facts</h1>
     <div class="image-gallery">
@@ -232,14 +225,6 @@ width: 300px;
         </div>
     </footer>
 
-
-
-
-<script>
-  function goBack() {
-    window.history.back();
-  }
-</script>
 
 
 </body>
