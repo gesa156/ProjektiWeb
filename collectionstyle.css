@@ -10,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    margin-left: 20px;
     background: gray;
     background-size: cover;
     background-position: center;
@@ -79,7 +80,7 @@ body {
 
 .navigation .btnLogin-popup:hover {
     background: #fff;
-    color: black;
+    color: white;
 }
 
 main {
@@ -93,7 +94,6 @@ main {
 .bgfoto {
     width: 100%;
     height: 280px;
-    background-image: url("hero.jpg");
     background-size: 100% 100%;
     display: flex;
     align-items: center;
@@ -103,13 +103,14 @@ main {
 .butoni_bg {
     width: 50px;
     height: 25px;
-    background-color: black;
+    background-color: white;
     border: inset 0px;
 }
 
 .latestphoto {
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 20px;
     display: flex;
     width: 85%;
     height: 50px;
@@ -119,7 +120,7 @@ main {
 
 .fotografit .rubrika {
     width: calc(25% - 20px);
-    margin: 10px;
+    margin: 15px;
 }
 
 .fotografit {
@@ -128,6 +129,7 @@ main {
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-top: 10px;
+    justify-content: center;
 }
 
 .rubrika {
@@ -152,7 +154,6 @@ main {
 .img {
     width: 100%;
     height: 75%;
-    background-image: url("img-01.jpg");
     background-size: 100% 100%;
 }
 
@@ -174,33 +175,29 @@ main {
 
 .numrat {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 15%;
+    align-items: center;
 }
 
 .btn {
     height: 30px;
     width: 30px;
     border: inset 0px;
-}
-
-.btn_prev_next {
-    height: 30px;
-    border: inset 0px;
-}
-.numrat {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .numrat button {
-    width: 30px; /* Set the desired width */
-    height: 30px; /* Set the desired height */
-    margin: 5px; /* Adjust margin as needed */
+    width: 30px;
+    height: 30px;
+    margin: 5px;
     border: none;
-    background-color: transparent; /* Set the initial background color */
+    background-color:white;
     cursor: pointer;
 }
 
 .numrat button.active {
-    background-color: lightseagreen; /* Set the active background color */
+    background-color: black;
 }
