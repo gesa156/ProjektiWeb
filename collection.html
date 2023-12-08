@@ -4,21 +4,36 @@
     <title>Collection</title>
     <link rel="stylesheet" href="collectionstyle.css">
 </head>
+<style>
+    .hidden {
+      display: none;
+    }
+</style>
 <script>
-    const buttons = document.querySelectorAll('button');
-const pages = document.querySelectorAll('#page1, #page2, #page3');buttons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        const page = pages[index];
-        page.style.display = 'block';
-        buttons.forEach((otherButton) => {
-            if (otherButton !== button) {
-                otherButton.style.display = 'none';
-            }
-        });
+    document.addEventListener("DOMContentLoaded", function () {
+        const pages = document.querySelectorAll('.page');
+        const pageButtons = document.querySelectorAll('.numrat button');
+
+        function showPage(pageNumber) {
+            pages.forEach((page, index) => {
+                const isActive = index + 1 === pageNumber;
+                if (isActive) {
+                    page.classList.remove('hidden');
+                } else {
+                    page.classList.add('hidden');
+                }
+            });
+        }
+        function btnClicked(button) {
+            const pageNumber = parseInt(button.innerText);
+            showPage(pageNumber);
+
+            pageButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+        showPage(1);
+        pageButtons.forEach((button) => button.addEventListener('click', () => btnClicked(button)));
     });
-});
-
-
 </script>
 <body>
     <header class="header">
@@ -51,7 +66,7 @@ const pages = document.querySelectorAll('#page1, #page2, #page3');buttons.forEac
                 </div>
                 <div class="rubrika">
                     <img src="https://th-thumbnailer.cdn-si-edu.com/XIhsUgi95b0G3mpm15ZlxGFBFPE=/800x800/filters:focal(800x602:801x603)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/7f/0b/7f0be491-c840-425e-90f1-916424359e9f/p1159704_web.jpg" alt="" class="img">
-                    <div class="caption"> <b>Polar Bear</b> <br>The Polar Bear, the largest land carnivore, well-adapted to its icy habitat.</div>
+                    <div class="caption"> <b>Polar Bear</b> <br>The largest land carnivore, well-adapted to its icy habitat.</div>
                 </div>
                 <div class="rubrika">
                     <img src="https://www.fauna-flora.org/wp-content/uploads/2023/05/GettyImages-625850102-scaled-1.jpg" alt="" class="img">
@@ -266,10 +281,10 @@ const pages = document.querySelectorAll('#page1, #page2, #page3');buttons.forEac
         
         <div class="permifooter">
             <div class="numrat">
-                <button onclick="btnClicked(1, this)" id="btnPage1" class="active">1</button>
-                <button onclick="btnClicked(2, this)">2</button>
-                <button onclick="btnClicked(3, this)" id="btnPage3">3</button>
-                <button onclick="btnClicked(4, this)">4</button>
+                <button onclick="btnClicked(this)" id="btnPage1" class="active">1</button>
+                <button onclick="btnClicked(this)">2</button>
+                <button onclick="btnClicked(this)">3</button>
+                <button onclick="btnClicked(this)">4</button>
             </div>
         </div>
     </main>
