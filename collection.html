@@ -5,77 +5,33 @@
     <link rel="stylesheet" href="collectionstyle.css">
 </head>
 <script>
-    function btnClicked(button) {
-            // Remove the 'active' class from all buttons
-            const buttons = document.querySelectorAll('.numrat button');
-            buttons.forEach(btn => btn.classList.remove('active'));
+    document.addEventListener("DOMContentLoaded", function () {
+        const pages = document.querySelectorAll('.page');
+        const pageButtons = document.querySelectorAll('.numrat button');
 
-            // Add the 'active' class to the clicked button
+        function showPage(pageNumber) {
+            pages.forEach((page, index) => {
+                const isActive = index + 1 === pageNumber;
+                if (isActive) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+        }
+
+        function btnClicked(pageNumber, button) {
+            showPage(pageNumber);
+            // Mark only the clicked button as active
+            pageButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
-function goBack() {
-    window.history.back();
-  }
-  function goForward() {
-    window.history.forward();
-}
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-        // Get references to the buttons and content
-        const nextButton = document.querySelector('.NextPage button');
-        const pageButtons = document.querySelectorAll('.numrat button');
-        const fotografit = document.querySelector('.fotografit');
 
         // Set initial page
-        let currentPage = 1;
-
-        // Array of image URLs for each page
-        const pageImages = {
-            1: [
-            '.latestphoto;'
-            ],
-            2: [
-            '.latestphoto;'
-            ],
-            // Repeat for other pages
-        };
+        showPage(1);
 
         // Add click event listeners
-        nextButton.addEventListener('click', nextPage);
-        pageButtons.forEach(button => button.addEventListener('click', goToPage));
-
-        // Function to handle Next Page button click
-        function nextPage() {
-            if (currentPage < 5) { // Assuming there are 5 pages in total
-                currentPage++;
-                updateContent();
-            }
-        }
-
-        // Function to handle numbered button click
-        function goToPage() {
-            const pageNumber = parseInt(this.value);
-            if (pageNumber >= 1 && pageNumber <= 5) { // Assuming there are 5 pages in total
-                currentPage = pageNumber;
-                updateContent();
-            }
-        }
-
-        // Function to update content based on the current page
-        function updateContent() {
-            // Get the array of image URLs for the current page
-            const imagesForCurrentPage = pageImages[currentPage];
-
-            // Check if there are images for the current page
-            if (imagesForCurrentPage && imagesForCurrentPage.length > 0) {
-                // Generate HTML for the images
-                const imagesHTML = imagesForCurrentPage.map(imageURL => `<div class="rubrika"><img src="${imageURL}" alt="" class="img"></div>`).join('');
-
-                // Set the HTML to the fotografit element
-                fotografit.innerHTML = imagesHTML;
-            }
-        }
+        pageButtons.forEach((button, index) => button.addEventListener('click', () => btnClicked(index + 1, button)));
     });
 </script>
 <body>
@@ -93,9 +49,10 @@ function goBack() {
             <input type="text" placeholder="Search" style="height: 20px;">
             <button class="butoni_bg"><img src="search.png" alt=""></button>
         </div>
+        <div class="page" id="page1">
         <div class="latestphoto">
             <h3>Mammals</h3>
-            <p>Page <button value="1">1</button> of 5</p>
+            <p>Page <button onclick="btnClicked(1, this)" class="active">1</button> of 4</p>
         </div>
         <div class="fotografit">
             <div class="rubrika">
@@ -163,20 +120,173 @@ function goBack() {
                 <div class="caption"> <b>Dolphin</b> <br>cap.</div>
             </div>
         </div>
+        </div>
+        <div class="page" id="page2">
+            <div class="latestphoto">
+                <h3>Reptiles</h3>
+                <p>Page <button onclick="btnClicked(2)" class="active">2</button> of 4</p>
+            </div>
+            <div class="fotografit">
+                <div class="rubrika">
+                    <img src="regal.avif" alt="" class="img">
+                    <div class="caption"> <b>Regal Horned Lizard</b> <br>cap.</div>
+                </div>
+                
+                <div class="rubrika">
+                    <img src="https://cdn.mos.cms.futurecdn.net/B3iinpTazCJnx4LskepukZ-1200-80.jpg" alt="" class="img">
+                    <div class="caption"> <b>Crocodiles</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/American_Alligator.jpg/330px-American_Alligator.jpg" alt="" class="img">
+                    <div class="caption"> <b>American Alligator</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="chameleon.jpg" alt="" class="img">
+                    <div class="caption"> <b>Chameleon</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="Gecko.jpeg" alt="" class="img">
+                    <div class="caption"> <b>Gecko</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://i.natgeofe.com/n/4ab840f4-92fb-424c-a642-f58105e0b07d/NationalGeographic_1066541_4x3.jpg" alt="" class="img">
+                    <div class="caption"> <b>Gila monster</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="dd.jpeg" alt="" class="img">
+                    <div class="caption"> <b>Komodo dragon</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="Boa Constrictor.jpeg" alt="" class="img">
+                    <div class="caption"> <b>Boa Constrictor</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="Burmese Python.jpeg" alt="" class="img">
+                    <div class="caption"> <b>Burmes Python</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="Anaconda.jpeg" alt="" class="img">
+                    <div class="caption"> <b>Anaconda</b> <br>cap.</div>
+                </div>
+    
+                <div class="rubrika">
+                    <img src="https://www.naturesafariindia.com/wp-content/uploads/2023/10/King-cobra-in-Kaziranga-national-park-india-930x620.jpg" alt="" class="img">
+                    <div class="caption"> <b>King Cobra</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://www.anipedia.net/imagenes/serpientes-cascabel-800x375.jpg" alt="" class="img">
+                    <div class="caption"> <b>Rattlesnake</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSQ0vQ0fQvRZloilSoCObNMBPznznKNG8b7Z6IBuzKHF-qszEz8zaCshcx95vKrzzLb" alt="" class="img">
+                    <div class="caption"> <b>Turtles</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="Desert Tortoise.jpeg" alt="" class="img">
+                    <div class="caption"> <b>Desert Tortoise</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="galápagos tortoise.jpg" alt="" class="img">
+                    <div class="caption"> <b>Galápagos tortoise</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="Green Sea Turtle.avif" alt="" class="img">
+                    <div class="caption"> <b>Green Sea Turtle</b> <br>cap.</div>
+                </div>
+            
+                <div class="rubrika">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP4-JVVN06ml94zPG2lMYspr4Ah4pONAqxh7exfLHzznc-LhA6LCoKqDIMkLmePgF3iAA&usqp=CAU" alt="" class="img">
+                    <div class="caption"> <b>Loggerhead Sea Turtle</b> <br>cap.</div>
+                </div>
+        </div>
+        </div>
+        <div class="page" id="page3">
+            <div class="latestphoto">
+                <h3>Amphibians</h3>
+                <p>Page <button onclick="btnClicked(3, this)" class="active">3</button> of 4</p>
+            </div>
+            <div class="fotografit">
+                <div class="rubrika">
+                    <img src="https://static.scientificamerican.com/sciam/cache/file/41DF7DA0-EE58-4259-AA815A390FB37C55_source.jpg" alt="" class="img">
+                    <div class="caption"> <b>Frog</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Hynobius_fossigenus.png/640px-Hynobius_fossigenus.png" alt="" class="img">
+                    <div class="caption"> <b>Salamander</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://c402277.ssl.cf1.rackcdn.com/photos/20852/images/magazine_medium/axolotl_WWsummer2021.jpg?1618758847" alt="" class="img">
+                    <div class="caption"> <b>Axolotl</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://animals.sandiegozoo.org/sites/default/files/2020-02/salamander-giant_0.jpg" alt="" class="img">
+                    <div class="caption"> <b>Giant Salamanders</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Centrolene_buckleyi01.jpeg/330px-Centrolene_buckleyi01.jpeg" alt="" class="img">
+                    <div class="caption"> <b>Lissamphibia</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://mdc.mo.gov/sites/default/files/mo_nature/media/images/2010/05/american_toad.jpg" alt="" class="img">
+                    <div class="caption"> <b>Toads</b> <br>cap.</div>
+                </div>
+                <div class="rubrika">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Siren_intermedia_nettingi_UMFS_2015_1.JPG/220px-Siren_intermedia_nettingi_UMFS_2015_1.JPG" alt="" class="img">
+                    <div class="caption"> <b>Lesser siren</b> <br>cap.</div>
+                </div>
+            </div>
+            </div>
+
+            <div class="page" id="page5">
+                <div class="latestphoto">
+                    <h3>Amphibians</h3>
+                    <p>Page <button onclick="btnClicked(4, this)" class="active">4</button> of 4</p>
+                </div>
+                <div class="fotografit">
+                    <div class="rubrika">
+                        <img src="https://www.allaboutbirds.org/guide/assets/photo/308074031-480px.jpg" alt="" class="img">
+                        <div class="caption"> <b>Pigeon</b> <br>cap.</div>
+                    </div>
+                    <div class="rubrika">
+                        <img src="https://www.allaboutbirds.org/guide/assets/photo/297363481-480px.jpg" alt="" class="img">
+                        <div class="caption"> <b>Owl</b> <br>cap.</div>
+                    </div>
+                    <div class="rubrika">
+                        <img src="https://nzbirdsonline.org.nz/sites/all/files/2X2A1697%20King%20Penguin%20bol.jpg" alt="" class="img">
+                        <div class="caption"> <b>Penguins</b> <br>cap.</div>
+                    </div>
+                    <div class="rubrika">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Woodpecker_20040529_151837_1c_cropped.JPG/640px-Woodpecker_20040529_151837_1c_cropped.JPG" alt="" class="img">
+                        <div class="caption"> <b>Woodpeckers</b> <br>cap.</div>
+                    </div>
+                    <div class="rubrika">
+                        <img src="https://media.audubon.org/nas_birdapi/web_apa_2015_lorirothstein_278631_bald_eagle_kk-adult.jpg" alt="" class="img">
+                        <div class="caption"> <b>Bald Eagle</b> <br>cap.</div>
+                    </div>
+                    <div class="rubrika">
+                        <img src="https://res.cloudinary.com/roundglass/image/upload/w_1104,h_736,c_fill/q_auto:best,f_auto/v1632484088/rg/collective/media/common-kingfisher-dhritiman-mukherjee-1632484087720.jpg" alt="" class="img">
+                        <div class="caption"> <b>Kingfisher</b> <br>cap.</div>
+                    </div>
+                    <div class="rubrika">
+                        <img src="https://nationaltoday.com/wp-content/uploads/2022/07/25-World-Parrot-Day-1200x834.jpg" alt="" class="img">
+                        <div class="caption"> <b>Parrot</b> <br>cap.</div>
+                    </div>
+                    <div class="rubrika">
+                        <img src="https://www.treehugger.com/thmb/RXeq-0l-3gU8i8f7DBbxUYXYXjI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-521324136-634374426780412bbd2fdb3bb8c0ba2a.jpg" alt="" class="img">
+                        <div class="caption"> <b>Ostriches</b> <br>cap.</div>
+                    </div>
+
+                </div>
+                </div>
         <div class="permifooter">
-            <div class="previous">
-                <button onclick="goBack()">Go Back</button>
-            </div>
             <div class="numrat">
-                <button onclick="btnClicked(this)">1</button>
-                <button onclick="btnClicked(this)">2</button>
-                <button onclick="btnClicked(this)">3</button>
-                <button onclick="btnClicked(this)">4</button>
-            </div>
-            <div class="NextPage">
-                <button onclick="goForward()">Next Page</button>
+                <button onclick="btnClicked(1, this)" class="active">1</button>
+                <button onclick="btnClicked(2, this)">2</button>
+                <button onclick="btnClicked(3, this)">3</button>
+                <button onclick="btnClicked(4, this)">4</button>
             </div>
         </div>
     </main>
 </body>
+
 </html>
