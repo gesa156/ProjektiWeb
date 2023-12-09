@@ -73,4 +73,3 @@ function redirectToCollection() {
 
     window.location.href = "collection.html";
     }
-
