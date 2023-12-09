@@ -146,21 +146,21 @@ transition: none;
 
 
 .cc .icon-close{
-position: absolute;
-top: 0;
-right: 0;
-width: 45px;
-height: 45px;
-background: black;
-font-size: 2em;
-color: #fff;
-display: flex;
-justify-content: center;
-align-items: center;
-border-bottom-left-radius: 20px;
-z-index: 1;
-
-}
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: black;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    z-index: 1;
+    cursor: pointer; 
+  }
 .form-box h2{
 
     font-size: 1em;
@@ -284,29 +284,29 @@ font-weight: 600;
 
 
 
-.cover h1{
+.cover h1 {
     font-weight: 700;
     font-family: inherit;
     font-size: 40px;
-    color:black;
+    color: black;
     position: absolute;
     top: 50%;
     left: 17%;
     transform: translate(-50%, -50%);
-  }
-  
-  .cover p{
+}
+
+.cover p {
     font-style: italic;
     font-family: inherit;
-      font-size: 16px;
-      color: black;
-      position: absolute;
-      top: 60%;
-      left: 17%;
-      transform: translate(-50%, -50%);
-  }
-  
-  .btnn{
+    font-size: 16px;
+    color: black;
+    position: absolute;
+    top: 60%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+}
+
+ .cover .btn {
     margin: 8px;
     padding: 8px;
     font-family: inherit;
@@ -314,16 +314,15 @@ font-weight: 600;
     color: white;
     position: absolute;
     top: 68%;
-    left: -100%;
+    left: 80px;
     transform: translate(-50%, -50%);
     background-color: black;
-    border-radius: 17px;
-    width: 10%;
+    border-radius: 9px;
+    width: 9%;
     height: 30px;
-    margin-left: 50px;
-  }
-  
-  .btnn:hover{
+}
+
+.cover .btn:hover {
     background-color: gray;
     color: white;
-  }
+}

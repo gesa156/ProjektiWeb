@@ -2,6 +2,8 @@ const cc = document.querySelector('.cc');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
 const btnPopup = document.querySelector('.btnLogin-popup');
+const iconclose=document.querySelector('.icon-close');
+
 
 registerLink.addEventListener('click', () => {
     cc.classList.add('active');
@@ -18,6 +20,14 @@ loginLink.addEventListener('click', () => {
 btnPopup.addEventListener('click', () => {
     cc.classList.add('active-popup');
 });
+
+var closeIcon = document.getElementById('closeIcon');
+
+    
+    closeIcon.addEventListener('click', function() {
+        
+        alert('Icon clicked! Add your functionality here.');
+    });
 
 function validateLoginForm() {
     let email = document.getElementById('emailInput').value;
@@ -66,3 +76,4 @@ function redirectToCollection() {
 
     window.location.href = "collection.html";
     }
+
