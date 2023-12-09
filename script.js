@@ -3,26 +3,30 @@ const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
 const btnPopup = document.querySelector('.btnLogin-popup');
 const iconClose=document.querySelector('.icon-close');
-
+const coverDiv = document.querySelector('.cover');
 
 registerLink.addEventListener('click', () => {
     cc.classList.add('active');
     document.querySelector('.login').classList.add('hidden');
     document.querySelector('.register').classList.remove('hidden');
+    coverDiv.style.display = 'none';
 });
 
 loginLink.addEventListener('click', () => {
     cc.classList.remove('active');
     document.querySelector('.login').classList.remove('hidden');
     document.querySelector('.register').classList.add('hidden');
+    coverDiv.style.display = 'none';
 });
 
 btnPopup.addEventListener('click', () => {
     cc.classList.add('active-popup');
+    coverDiv.style.display = 'none';
 });
 
 iconClose.addEventListener('click', () => {
     cc.classList.remove('active-popup');
+    coverDiv.style.display = 'block';
 });
 
 
