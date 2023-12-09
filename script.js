@@ -62,3 +62,7 @@ function validateRegisterForm() {
     }
 }
 
+function redirectToCollection() {
+
+    window.location.href = "collection.html";
+    }

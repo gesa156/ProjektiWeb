@@ -18,7 +18,7 @@
     </header>
     <style>
     .hidden {
-        display: none;
+        display: none;   
     }
     </style>
 
@@ -44,7 +44,7 @@
                     <a href="#">Forgot Password</a>
                 </div>
 
-                <button type="submit" class="btn"  onclick="validateForm()">Login</button>
+                <button type="submit" class="btn"  onclick="validateLoginForm()">Login</button>
 
                 <div class="login-register">
                     <p>Don't have an account ? <a href="#" class="register-link">Register</a></p>
@@ -79,7 +79,7 @@
                     <label><input type="checkbox" id="agreeCheckbox" > I agree to the terms and conditions. </label>
                 </div>
 
-                <button type="submit" class="btn"   onclick="validateForm()">Register</button>
+                <button type="submit" class="btn"   onclick="validateRegisterForm() ">Register</button>
                 <div class="login-register">
                     <p>Already have an account? <a href="#" class="login-link">Login</a>
                     </p>
@@ -90,6 +90,13 @@
     </div>
 
 
+    <div class="cover" style="text-align: right;">
+        <h1>WELCOME TO BUTTERFLY</h1>
+		<p>DISCOVER AND APPRECIATE WHERE NATURE MEETS THE WEB.<br>UNDERSTAND THE ANIMAL WORLD! </p>
+        <button class="btn" onclick="redirectToCollection()">Read More</button>
+        
+    </div>
+    
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
