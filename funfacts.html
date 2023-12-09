@@ -23,15 +23,20 @@
     height: 100%;
   }
 
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
 
-  main {
-    flex: 1;
-  }
+  .wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  position: relative; 
+}
+
+main {
+  flex: 1;
+}
+
 
   .header {
     position: absolute;
@@ -164,25 +169,24 @@
   }
 
   footer {
-  background-color: black;
-  color: white;
-  padding: 20px;
-  
-  
-  
+    background-color:black(222, 220, 220);
+    color: white;
+    padding: 20px;
 }
 
 .f{
-display: flex;
-justify-content: space-between;
-
+ display: flex;
+ justify-content: space-between;
+  
 }
+
+
 
 .footermain{
 
-  display: flex;
-  color: white;
-  justify-content: space-between;
+    display: flex;
+    color: black;
+    justify-content: space-between;
 }
 
 .footerleft{
@@ -191,25 +195,23 @@ justify-content: space-between;
 text-align: left;
 width: 300px;
 
-}
-.footercenter >p{
-  text-align: left;
-  justify-content: center;
- 
-  
-  
+ }
+ .footercenter >p{
+    text-align: center;
+    justify-content: center;
+    
+    
 }
 .footerright p{
-  text-align: right;
+    text-align: right;
 }
 
 .fundi {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  color: white;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    color: black;
 }
 
 </style>
@@ -426,6 +428,7 @@ width: 300px;
     
         </div>
     </div>
+  
     <div class="footermain">
       <div class="footerleft">
           <p>"Explore our website's enchanting world, where each click unveils heartwarming tales and captivating images celebrating the beauty, resilience, and charm of the animal kingdom."</p>
@@ -446,10 +449,9 @@ width: 300px;
       <p>Copyright 2023 Butterfly Website.<br>
          All rights reserved.</p>
       <p>Designed by Orgesa and Erza</p>
-  </div>
-</footer>
-
-
-
+    </div>
+  </footer>
+</main>
 </body>
+
 </html>

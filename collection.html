@@ -8,7 +8,8 @@
     .hidden {
       display: none;
     }
-    
+
+   
 </style>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -36,26 +37,29 @@
         pageButtons.forEach((button) => button.addEventListener('click', () => btnClicked(button)));
     });
 
-let slideIndex = 0;
-showSlides();
+    document.addEventListener("DOMContentLoaded", function () {
+            let slideIndex = 0;
+            showSlides();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 3000); // Change image every 2 seconds
-}
-
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 3000); 
+            }
+        });
 </script>
 <body>
     <header class="header">
@@ -68,37 +72,40 @@ function showSlides() {
         </nav>
     </header>
     <main>
-
-
         <div class="slideshow-container">
-
             <div class="mySlides fade">
-              <div class="numbertext">1 / 3</div>
-              <img src="cat.jpg" style="width:100%">
-              <div class="text">Caption Text</div>
-            </div>
+                <div class="numbertext"  style=" margin-left:53%;"    >1 / 4<br>Mammals</div>
+                <img src="ff.jpg" style="width: 40%; height: 40%; margin-left: 22%;">
             
+            </div>
+    
             <div class="mySlides fade">
-              <div class="numbertext">2 / 3</div>
-              <img src="dd.jpeg" style="width:100%">
-              <div class="text">Caption Two</div>
+                <div class="numbertext"  style=" margin-left: 54%;">2 / 4 <br>Reptiles </div>
+                <img src="chameleon.jpg"  style="width: 40%; height: 40%; margin-left: 22%;">
+              
             </div>
-            
+    
             <div class="mySlides fade">
-              <div class="numbertext">3 / 3</div>
-              <img src="regal.avif" style="width:100%">
-              <div class="text">Caption Three</div>
+                <div class="numbertext" style="margin-left: 52%;">3 / 4 <br>Amphibians</div>
+                <img src="aaa.jpg"  style="width: 40%; height: 40%; margin-left: 22%;">
+             
             </div>
-            
+    
+            <div class="mySlides fade">
+                <div class="numbertext" style="margin-left: 59%;">4 / 4 <br>Birds</div>
+                <img src="parrots.webp" style="width: 50%; height: 50%;   margin-left: 16%;">
+                
             </div>
-            <br>
+    
             
+    
             <div style="text-align:center">
-              <span class="dot"></span> 
-              <span class="dot"></span> 
-              <span class="dot"></span> 
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                
             </div>
-
+        </div>
 
         <div class="bgfoto">    
         </div>
@@ -344,6 +351,6 @@ function showSlides() {
             </div>
         </div>
     </main>
-</body>
-
-</html>
+        </body>
+        </html>
+        

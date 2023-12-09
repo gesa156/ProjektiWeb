@@ -98,6 +98,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: -20%;
 }
 
 .butoni_bg {
@@ -208,22 +209,16 @@ body {font-family: Verdana, sans-serif;}
 img {vertical-align: middle;}
 
 
+    
+
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 900px;
   position: relative;
-  margin: auto;
-}
+  margin-top: 10%; 
+    }
 
 
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: left;
-}
+
 
 .numbertext {
   color: #f2f2f2;
@@ -233,15 +228,7 @@ img {vertical-align: middle;}
   top: 0;
 }
 
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
+
 
 .active {
   background-color: #717171;
@@ -258,6 +245,9 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 
+
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+    
+
