@@ -11,7 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin-left: 20px;
-    background: gray;
+    background: rgb(46, 78, 120);;
     background-size: cover;
     background-position: center;
 }
