@@ -31,46 +31,56 @@ iconClose.addEventListener('click', () => {
 
 
 function validateLoginForm() {
-    let email = document.getElementById('emailInput').value;
-    let password = document.getElementById('passwordInput').value;
+    var emailInput = document.getElementById("emailInput").value;
+    var password = document.getElementById("password").value;
 
-    let emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
-    let passwordRegex = /^.{8,16}$/;
-
-    if (email.trim() === '' || password.trim() === '') {
-        alert('Please enter both email and password.');
-    } else if (!emailRegex.test(email)) {
-        alert('Email is not in the correct format.');
-    } else if (!passwordRegex.test(password)) {
-        alert('Password should be between 8 and 16 characters.');
-    } else {
-        alert('Login successful!');
+    var emailInputRegex = /[a-zA-Z._-]+@[a-z]+\.[a-z]{2,3}$/;
+    
+    if (!emailInputRegex.test(emailInput)) {
+        alert('Please enter a valid email.');
+        return false;
     }
+
+    var passwordRegex = /^.{8,16}$/;
+    
+    if (!passwordRegex.test(password)) {
+        alert('Please enter a valid password.');
+        return false;
+    }
+    
+    return true;
 }
 
+
 function validateRegisterForm() {
-    let username = document.getElementById('Username').value;
-    let email = document.getElementById('emailInput').value;
-    let password = document.getElementById('passwordInput').value;
-    let agreeCheckbox = document.getElementById('agreeCheckbox').checked;
+    var username=document.getElementById("username").value;
+    var emailInput = document.getElementById("emailInput").value;
+    var password = document.getElementById("password").value;
 
-    let usernameRegex = /^[A-Za-z0-9_]+$/;
-    let emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
-    let passwordRegex = /^.{8,16}$/;
 
-    if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
-        alert('Please enter username, email, and password.');
-    } else if (!usernameRegex.test(username)) {
-        alert('Username is not in the correct format.');
-    } else if (!emailRegex.test(email)) {
-        alert('Email is not in the correct format.');
-    } else if (!passwordRegex.test(password)) {
-        alert('Password should be between 8 and 16 characters.');
-    } else if (!agreeCheckbox) {
-        alert('Please agree to the terms and conditions.');
-    } else {
-        alert('Registration successful!');
+var usernameRegex=/^[a-zA-Z/s]+$/;
+if (!usernameRegex.test(username)) {
+    alert('Please enter a valid username.');
+    return false;
+}
+
+
+
+    var emailInputRegex = /[a-zA-Z._-]+@[a-z]+\.[a-z]{2,3}$/;
+    
+    if (!emailInputRegex.test(emailInput)) {
+        alert('Please enter a valid email.');
+        return false;
     }
+
+    var passwordRegex = /^.{8,16}$/;
+    
+    if (!passwordRegex.test(password)) {
+        alert('Please enter a valid password.');
+        return false;
+    }
+    
+    return true;
 }
 
 function redirectToCollection() {
