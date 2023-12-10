@@ -32,7 +32,7 @@ iconClose.addEventListener('click', () => {
 
 function validateLoginForm() {
     var emailInput = document.getElementById("emailInput").value;
-    var password = document.getElementById("password").value;
+    var password = document.getElementById("passwordInput").value;
 
     var emailInputRegex = /[a-zA-Z._-]+@[a-z]+\.[a-z]{2,3}$/;
     
@@ -47,24 +47,22 @@ function validateLoginForm() {
         alert('Please enter a valid password.');
         return false;
     }
-    
-    return true;
-}
 
+    alert('Login Successful');
+    return redirectToCollection();
+}
 
 function validateRegisterForm() {
-    var username=document.getElementById("username").value;
-    var emailInput = document.getElementById("emailInput").value;
-    var password = document.getElementById("password").value;
+    var username = document.getElementById("Username").value;
+    var emailInput = document.getElementById("registerEmailInput").value;
+    var password = document.getElementById("registerPasswordInput").value;
 
 
-var usernameRegex=/^[a-zA-Z/s]+$/;
-if (!usernameRegex.test(username)) {
-    alert('Please enter a valid username.');
-    return false;
-}
-
-
+    var usernameRegex = /^[a-zA-Z\s]+$/;
+    if (!usernameRegex.test(username)) {
+        alert('Please enter a valid username.');
+        return false;
+    }
 
     var emailInputRegex = /[a-zA-Z._-]+@[a-z]+\.[a-z]{2,3}$/;
     
@@ -79,11 +77,11 @@ if (!usernameRegex.test(username)) {
         alert('Please enter a valid password.');
         return false;
     }
-    
-    return true;
+
+    alert('Registration Successful');
+    return redirectToCollection();
 }
 
 function redirectToCollection() {
-
     window.location.href = "collection.html";
-    }
+}
