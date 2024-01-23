@@ -7,7 +7,6 @@
  font-family: 'Poppins', sans-serif;
 }
 .logo {
-    font-family: 'YourChosenFont';
     display: flex;
     align-items: center;
   }
@@ -40,7 +39,7 @@ body{
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-}
+  }
 
  .logo {
     font-size: 2em;
