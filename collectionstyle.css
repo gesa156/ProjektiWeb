@@ -11,7 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin-left: 20px;
-    background: rgb(46, 78, 120);
+    background: rgb(136, 183, 206);
     background-size: cover;
     background-position: center;
 }
@@ -240,14 +240,6 @@ img {vertical-align: middle;}
   animation-duration: 1.5s;
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
 
-
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
-}
     
 
