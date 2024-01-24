@@ -1,13 +1,21 @@
-
 <?php
 session_start();
-echo "Pershendetje, " . $_SESSION['emailInput'];
+
+echo "Pershendetje, ";
+
+if (isset($_SESSION['email'])) {
+    echo $_SESSION['email'];
+} else {
+    echo "Guest";
+}
+
 echo "<button><a href='logout.php'>Log out</a></button>";
 
-if ($_SESSION['role'] == "admin") {
+if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
     echo "<button><a href='dashboard.php'>Dashboard</a></button>";
 }
 ?>
+
 
 
 
@@ -40,21 +48,20 @@ if ($_SESSION['role'] == "admin") {
         </nav>
     </header>
     <?php
-session_start();
 
 if(isset($_POST['loginbtn-popup'])){
-    if(empty($_POST['emailInput']) || empty($_POST['passwordInput'])){
+    if(empty($_POST['email']) || empty($_POST['password'])){
         echo "Please fill the required fields!";
     } else {
-        $username = $_POST['emailInput'];
-        $password = $_POST['passwordInput'];
+        $username = $_POST['email'];
+        $password = $_POST['password'];
 
         include_once 'users.php'; 
 
         foreach($users as $user){
-            if($user['emailInput'] == $username && $user['passwordInput'] == $password){
-                $_SESSION['emailInput'] = $username;
-                $_SESSION['passwordInput'] = $password;
+            if($user['email'] == $username && $user['password'] == $password){
+                $_SESSION['email'] = $username;
+                $_SESSION['password'] = $password;
                 $_SESSION['role'] = $user['role'];
                 $_SESSION['loginTime'] = date("H:i:s");
 
@@ -70,7 +77,7 @@ if(isset($_POST['loginbtn-popup'])){
 ?>
 
  
- <h3><?php echo isset($_SESSION['emailInput']) ? "Email: ".$_SESSION['emailInput']."<br>" : ""; ?></h3>
+ <h3><?php echo isset($_SESSION['email']) ? "Email: ".$_SESSION['email']."<br>" : ""; ?></h3>
 <h3><?php echo isset($_SESSION['loginTime']) ? "Login Time: ".$_SESSION['loginTime']."<br>" : ""; ?></h3>
 
 
@@ -82,13 +89,13 @@ if(isset($_POST['loginbtn-popup'])){
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" id="emailInput" required>
+                    <input type="email" id="emailInput" name="email" required>
                     <label>Email</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" id="passwordInput" required>
+                    <input type="password" id="passwordInput"name="password" required>
                     <label>Password</label>
                 </div>
 
