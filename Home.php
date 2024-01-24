@@ -1,3 +1,16 @@
+
+<?php
+session_start();
+echo "Pershendetje, " . $_SESSION['emailInput'];
+echo "<button><a href='logout.php'>Log out</a></button>";
+
+if ($_SESSION['role'] == "admin") {
+    echo "<button><a href='dashboard.php'>Dashboard</a></button>";
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,14 +39,47 @@
 
         </nav>
     </header>
+    <?php
+session_start();
+
+if(isset($_POST['loginbtn-popup'])){
+    if(empty($_POST['emailInput']) || empty($_POST['passwordInput'])){
+        echo "Please fill the required fields!";
+    } else {
+        $username = $_POST['emailInput'];
+        $password = $_POST['passwordInput'];
+
+        include_once 'users.php'; 
+
+        foreach($users as $user){
+            if($user['emailInput'] == $username && $user['passwordInput'] == $password){
+                $_SESSION['emailInput'] = $username;
+                $_SESSION['passwordInput'] = $password;
+                $_SESSION['role'] = $user['role'];
+                $_SESSION['loginTime'] = date("H:i:s");
+
+                
+                header("Location: Collection.php"); 
+                exit();
+            }
+        }
+
+        echo "Incorrect Username or Password!";
+    }
+}
+?>
+
  
+ <h3><?php echo isset($_SESSION['emailInput']) ? "Email: ".$_SESSION['emailInput']."<br>" : ""; ?></h3>
+<h3><?php echo isset($_SESSION['loginTime']) ? "Login Time: ".$_SESSION['loginTime']."<br>" : ""; ?></h3>
+
 
 
      <div class="cc">
         <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
         <div class="from-box login">
             <h2>Login</h2>
-            <form action="#">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
                     <input type="email" id="emailInput" required>

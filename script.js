@@ -83,5 +83,6 @@ function validateRegisterForm() {
 }
 
 function redirectToCollection() {
-    window.location.href = "collection.html";
+    window.location.href = "collection.php";
 }
+
