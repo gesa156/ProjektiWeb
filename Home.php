@@ -1,22 +1,8 @@
 <?php
 session_start();
-
-echo "Pershendetje, ";
-
-if (isset($_SESSION['email'])) {
-    echo $_SESSION['email'];
-} else {
-    echo "Guest";
-}
-
-echo "<button><a href='logout.php'>Log out</a></button>";
-
-if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
-    echo "<button><a href='dashboard.php'>Dashboard</a></button>";
-}
 ?>
-
-
+<?php include ('users.php'); ?>
+<?php include ('validation.php'); ?>
 
 
 <!DOCTYPE html>
@@ -44,37 +30,26 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
             <a href="ContactUs.php">Contact Us</a>
             <a href="Home.php">Home</a>
             <button class="btnLogin-popup" >Login</button>
+            
+        <?php
+        // Check if the user is logged in and has the 'email' key in $_SESSION
+        if (isset($_SESSION['email'])) {
+            echo "Pershendetje, " . $_SESSION['email'] . "!";
 
+            echo "<button><a href='logout.php'>Log out</a></button>";
+
+            // Check if the user has the 'role' key in $_SESSION and it is set to 'admin'
+            if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
+                echo "<button><a href='dashboard.php'>Dashboard</a></button>";
+            }
+        } else {
+            echo "Pershendetje, Guest";
+        }
+        ?>
+        
         </nav>
     </header>
-    <?php
-
-if(isset($_POST['loginbtn-popup'])){
-    if(empty($_POST['email']) || empty($_POST['password'])){
-        echo "Please fill the required fields!";
-    } else {
-        $username = $_POST['email'];
-        $password = $_POST['password'];
-
-        include_once 'users.php'; 
-
-        foreach($users as $user){
-            if($user['email'] == $username && $user['password'] == $password){
-                $_SESSION['email'] = $username;
-                $_SESSION['password'] = $password;
-                $_SESSION['role'] = $user['role'];
-                $_SESSION['loginTime'] = date("H:i:s");
-
-                
-                header("Location: Collection.php"); 
-                exit();
-            }
-        }
-
-        echo "Incorrect Username or Password!";
-    }
-}
-?>
+    
 
  
  <h3><?php echo isset($_SESSION['email']) ? "Email: ".$_SESSION['email']."<br>" : ""; ?></h3>
