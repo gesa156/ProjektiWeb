@@ -86,6 +86,7 @@
   padding:25px;
   min-height: 100vh;
   background: linear-gradient(90deg,  rgb(136, 183, 206) 60%,  rgb(136, 183, 206) 40.1%);
+  margin-top: 5%;
 }
 
 .container form{
@@ -161,3 +162,56 @@
 .container form .submit-btn:hover{
   background: #2ecc71;
 }
+
+footer {
+  background-color:black;
+  color: white;
+  padding: 20px;
+  
+  
+}
+
+.f{
+display: flex;
+justify-content: space-between;
+
+}
+
+
+
+.footermain{
+
+  display: flex;
+  color: white;
+  justify-content: space-between;
+}
+
+.footerleft{
+
+
+text-align: left;
+width: 300px;
+
+
+}
+.footercenter >p{
+  text-align: center;
+  justify-content: center;
+  
+  
+}
+.footerright p{
+  text-align: right;
+}
+
+.fundi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  color: white;
+}
+.ff{
+margin-right: 20px;
+}
+

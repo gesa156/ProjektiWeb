@@ -13,6 +13,7 @@ section {
     background: #112d42;
 }
 
+
 section::before {
     content: '';
     position: absolute;
@@ -155,7 +156,7 @@ height: 60%;
 section .container .contactForm .formBox .inputBox {
 
     position: relative;
-    margin: 30px 50px 35px 25px;
+    margin: 30px 50px 35px 0;
   
 }
 
@@ -166,7 +167,7 @@ section .container .contactForm .formBox .inputBox textarea {
     font-size: 18px;
     font-weight: 300;
     color: #333;
-    border: none;
+    border: none; 
     border-bottom: 1px solid #777;
     outline: none;
 }
@@ -343,3 +344,5 @@ width: 300px;
   margin-right: 20px;
 }
 
+
+  
