@@ -20,40 +20,40 @@
         </nav>
     </header>
     <div class="container">
-        <form action="">
+        <form onsubmit="return validateDonationForm()">
         <div class="row">
             <div class="col">
                 <h3 class="title">Billing address</h3>
 
                 <div class="inputBox">
                     <span>Full name :</span>
-                    <input type="text" placeholder="Erza Shala">
+                    <input type="text" name="full-name" placeholder="Erza Shala">
                 </div>
 
                 <div class="inputBox">
                     <span>Email :</span>
-                    <input type="email" placeholder="example@example.com">
+                    <input type="email" name="email" placeholder="example@example.com">
                 </div>
 
                 <div class="inputBox">
                     <span>Address :</span>
-                    <input type="text" placeholder="room - street - locality">
+                    <input type="text" name="address" placeholder="room - street - locality">
                 </div>
 
                 <div class="inputBox">
                     <span>City :</span>
-                    <input type="text" placeholder="Prishtine">
+                    <input type="text" name="city" placeholder="Prishtine">
                 </div>
 
                 <div class="flex">
                 <div class="inputBox">
                     <span>State :</span>
-                    <input type="text" placeholder="Kosove">
+                    <input type="text" name="state" placeholder="Kosove">
                 </div>
 
                 <div class="inputBox">
                     <span>Zip code :</span>
-                    <input type="text" placeholder="10000">
+                    <input type="text" name="zip-code" placeholder="10000">
                 </div>
 
                 </div>
@@ -69,25 +69,25 @@
                     </div>
                     <div class="inputBox">
                         <span>name on card :</span>
-                        <input type="text" placeholder="miss. Erza Shala">
+                        <input type="text" name="card-name" placeholder="miss. Erza Shala">
                     </div>
                     <div class="inputBox">
                         <span>credit card number :</span>
-                        <input type="number" placeholder="1111-2222-3333-4444">
+                        <input type="number" name="card-number" placeholder="1111-2222-3333-4444">
                     </div>
                     <div class="inputBox">
                         <span>exp month :</span>
-                        <input type="text" placeholder="january">
+                        <input type="text" name="exp-month" placeholder="january">
                     </div>
     
                     <div class="flex">
                         <div class="inputBox">
                             <span>exp year :</span>
-                            <input type="number" placeholder="2022">
+                            <input type="number" name="exp-year" placeholder="2022">
                         </div>
                         <div class="inputBox">
                             <span>CVV :</span>
-                            <input type="text" placeholder="1234">
+                            <input type="text" name="cvv" placeholder="1234">
                         </div>
                     </div>
     
@@ -95,14 +95,94 @@
         
             </div>
     
-            <input type="submit" value="proceed to checkout" class="submit-btn">
-    
+            <input type="submit" value="Proceed to checkout" class="submit-btn">
         </form>
-    
+
     </div>    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    
+    <script>
+        function validateDonationForm() {
+            var fullName = document.querySelector("input[name='full-name']").value;
+            var email = document.querySelector("input[name='email']").value;
+            var address = document.querySelector("input[name='address']").value;
+            var city = document.querySelector("input[name='city']").value;
+            var state = document.querySelector("input[name='state']").value;
+            var zipCode = document.querySelector("input[name='zip-code']").value;
+            var cardName = document.querySelector("input[name='card-name']").value;
+            var cardNumber = document.querySelector("input[name='card-number']").value;
+            var expMonth = document.querySelector("input[name='exp-month']").value;
+            var expYear = document.querySelector("input[name='exp-year']").value;
+            var cvv = document.querySelector("input[name='cvv']").value;
+
+            var nameRegex = /^[a-zA-Z]+\s[a-zA-Z]+$/;
+            var emailRegex = /[a-zA-Z._-]+@[a-z]+\.[a-z]{2,3}$/;
+            var zipCodeRegex = /^\d{5}$/;
+            var cardNumberRegex = /^\d{16}$/;
+            var expMonthRegex = /^(?:January|February|March|April|May|June|July|August|September|October|November|December)$/i;
+            var expYearRegex = /^\d{4}$/;
+            var cvvRegex = /^\d{4}$/;
+
+            if (!nameRegex.test(fullName.trim())) {
+                alert('Please enter a valid full name.');
+                return false;
+            }
+
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email.');
+                return false;
+            }
+
+            if (address.trim() === '') {
+                alert('Please enter your address.');
+                return false;
+            }
+
+            if (city.trim() === '') {
+                alert('Please enter your city.');
+                return false;
+            }
+
+            if (state.trim() === '') {
+                alert('Please enter your state.');
+                return false;
+            }
+
+            if (!zipCodeRegex.test(zipCode)) {
+                alert('Please enter a valid zip code.');
+                return false;
+            }
+
+            if (cardName.trim() === '') {
+                alert('Please enter the name on your card.');
+                return false;
+            }
+
+            if (!cardNumberRegex.test(cardNumber)) {
+                alert('Please enter a valid credit card number.');
+                return false;
+            }
+
+            if (!expMonthRegex.test(expMonth)) {
+                alert('Please enter a valid expiration month.');
+                return false;
+            }
+
+            if (!expYearRegex.test(expYear)) {
+                alert('Please enter a valid expiration year.');
+                return false;
+            }
+
+            if (!cvvRegex.test(cvv)) {
+                alert('Please enter a valid CVV.');
+                return false;
+            }
+
+            alert('Your donation was successful! Thank you!');
+            return true;
+        }
+    </script>
+
     </body>
     </html>
