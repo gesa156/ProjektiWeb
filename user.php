@@ -1,35 +1,32 @@
-<?php 
-class User {
-    private $id;
-    private $email;
-    private $username;
-    private $password;
-  
+<?php
 
-    function __construct($id, $email, $username, $password, $role) {
-        $this->id = $id;
-        $this->email = $email;
-        $this->username = $username;
-        $this->password = $password;
-   
+class User{
+    private $id;
+    private $username;
+    private $email;
+    private $password;
+
+
+    function __construct($id,$username,$email,$password){
+            $this->id = $id;
+            $this->username = $username;
+            $this->email = $email;
+            $this->password = $password;
     }
 
-    function getId() {
+
+    function getId(){
         return $this->id;
     }
-
-    function getEmail() {
-        return $this->email;
-    }
-
-    function getUsername() {
+    function getUsername(){
         return $this->username;
     }
-
-    function getPassword() {
+    function getEmail(){
+        return $this->email;
+    }
+    function getPassword(){
         return $this->password;
     }
-
-   
 }
+
 ?>

@@ -63,21 +63,21 @@ function validateRegisterForm() {
 
 
     var usernameRegex = /^[a-zA-Z\s]+$/;
-    if (!usernameRegex.test(username)) {
+    if (!usernameRegex.test(Username)) {
         alert('Please enter a valid username.');
         return false;
     }
 
     var emailInputRegex = /[a-zA-Z._-]+@[a-z]+\.[a-z]{2,3}$/;
     
-    if (!emailInputRegex.test(emailInput)) {
+    if (!emailInputRegex.test(registerEmailInput)) {
         alert('Please enter a valid email.');
         return false;
     }
 
     var passwordRegex = /^.{8,16}$/;
     
-    if (!passwordRegex.test(password)) {
+    if (!passwordRegex.test(registerPasswordInput)) {
         alert('Please enter a valid password.');
         return false;
     }

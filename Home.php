@@ -40,13 +40,13 @@
             <form action="#">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" id="emailInput" name="email" required>
+                    <input type="email" id="emailInput"  required>
                     <label>Email</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" id="passwordInput"name="password" required>
+                    <input type="password" id="passwordInput" required>
                     <label>Password</label>
                 </div>
 
@@ -70,20 +70,20 @@
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <input type="text" id="Username" name="Username" required ="Username">
+                    <input type="text" id="Username" name="username" required ="Username">
                     <label>Username</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" id="registerEmailInput" name="registerEmailInput" required ="Email">
+                    <input type="email" id="registerEmailInput" name="email" required ="Email">
 
                     <label>Email</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" id="registerPasswordInput" name="registerPasswordInput" required ="Password">
+                    <input type="password" id="registerPasswordInput" name="password" required ="Password">
                     <label>Password</label>
                 </div>
 

@@ -23,7 +23,7 @@ class UserRepository{
 
         $statement = $conn->prepare($sql);
 
-        $statement->execute([$id,$username,$email,$password]);
+        $statement->execute([$id,$username,$email,$username,$password]);
 
         echo "<script> alert('User has been inserted successfuly!'); </script>";
 
@@ -54,7 +54,7 @@ class UserRepository{
     function updateUser($id,$username,$email,$password){
          $conn = $this->connection;
 
-         $sql = "UPDATE user SET username=?, email=?,  password=? WHERE id=?";
+         $sql = "UPDATE user SET username=? , email=?, password=? WHERE id=?";
 
          $statement = $conn->prepare($sql);
 
