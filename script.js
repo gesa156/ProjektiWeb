@@ -49,6 +49,10 @@ function validateLoginForm() {
     }
 
     alert('Login Successful');
+    // After successful login
+document.querySelector('.btnLogin-popup').style.display = 'none';
+document.querySelector('.btnLogout-popup').style.display = 'block';
+
     return redirectToCollection();
 }
 
@@ -79,6 +83,10 @@ function validateRegisterForm() {
     }
 
     alert('Registration Successful');
+    // After successful login
+document.querySelector('.btnLogin-popup').style.display = 'none';
+document.querySelector('.btnLogout-popup').style.display = 'block';
+
     return redirectToCollection();
 }
 

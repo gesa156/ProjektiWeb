@@ -63,7 +63,7 @@ body {
     transform: scaleX(1);
 }
 
-.navigation .btnLogin-popup {
+.navigation .btnLogout-popup {
     width: 130px;
     height: 50px;
     background: transparent;
@@ -78,7 +78,7 @@ body {
     transition: 0.5s;
 }
 
-.navigation .btnLogin-popup:hover {
+.navigation .btnLog-popup:hover {
     background: #fff;
     color: white;
 }

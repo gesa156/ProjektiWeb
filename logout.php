@@ -1,8 +1,10 @@
 <?php
-
 session_start();
 
-  session_destroy();
+// Destroy the session
+session_destroy();
 
-  header("location:home.php");
+// Redirect to the login page
+header("location: Home.php");
+exit();
 ?>

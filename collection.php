@@ -72,7 +72,8 @@
             <a href="donation.php">Donate</a>
             <a href="ContactUs.php">Contact Us</a>
             <a href="Home.php">Home</a>
-            <button class="btnLogin-popup">Login</button>
+            <button class="btnLogin-popup" style="display:none;" >Login</button>
+            <button class="btnLogout-popup">Logout</button>
 
         </nav>
     </header>

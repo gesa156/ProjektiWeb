@@ -87,7 +87,7 @@ main {
     transform: scaleX(1);
   }
 
-  .navigation .btnLogin-popup {
+  .navigation .btnLogout-popup {
     width: 130px;
     height: 50px;
     background: transparent;
@@ -102,7 +102,7 @@ main {
     transition: .5s;
   }
 
-  .navigation .btnLogin-popup:hover {
+  .navigation .btnLogout-popup:hover {
     background: #fff;
     color: black;
   }
@@ -248,7 +248,8 @@ width: 300px;
         <a href="donation.php">Donate</a>
         <a href="ContactUs.php">Contact Us</a>
         <a href="Home.php">Home</a>
-        <button class="btnLogin-popup" >Login</button>
+        <button class="btnLogin-popup" style="display:none;" >Login</button>
+        <button class="btnLogout-popup">Logout</button>
 
     </nav>
 </header>

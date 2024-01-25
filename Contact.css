@@ -274,7 +274,7 @@ section .container .contactForm .formBox .inputBox button {
     transform: scaleX(1);
   }
 
-  .navigation .btnLogin-popup {
+  .navigation .btnLogout-popup {
     width: 130px;
     height: 50px;
     background: transparent;
@@ -289,7 +289,7 @@ section .container .contactForm .formBox .inputBox button {
     transition: .5s;
   }
 
-  .navigation .btnLogin-popup:hover {
+  .navigation .btnLogout-popup:hover {
     background: #fff;
     color: black;
   }
