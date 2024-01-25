@@ -1,9 +1,3 @@
-<?php
-session_start();
-?>
-<?php include ('users.php'); ?>
-<?php include ('validation.php'); ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,38 +24,20 @@ session_start();
             <a href="ContactUs.php">Contact Us</a>
             <a href="Home.php">Home</a>
             <button class="btnLogin-popup" >Login</button>
-            
-        <?php
-        // Check if the user is logged in and has the 'email' key in $_SESSION
-        if (isset($_SESSION['email'])) {
-            echo "Pershendetje, " . $_SESSION['email'] . "!";
-
-            echo "<button><a href='logout.php'>Log out</a></button>";
-
-            // Check if the user has the 'role' key in $_SESSION and it is set to 'admin'
-            if (isset($_SESSION['role']) && $_SESSION['role'] == "admin") {
-                echo "<button><a href='dashboard.php'>Dashboard</a></button>";
-            }
-        } else {
-            echo "Pershendetje, Guest";
-        }
-        ?>
+        
         
         </nav>
     </header>
     
 
  
- <h3><?php echo isset($_SESSION['email']) ? "Email: ".$_SESSION['email']."<br>" : ""; ?></h3>
-<h3><?php echo isset($_SESSION['loginTime']) ? "Login Time: ".$_SESSION['loginTime']."<br>" : ""; ?></h3>
-
-
+ 
 
      <div class="cc">
         <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
         <div class="from-box login">
             <h2>Login</h2>
-            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+            <form action="#">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
                     <input type="email" id="emailInput" name="email" required>
@@ -89,25 +65,25 @@ session_start();
 
         <div class="form-box register hidden">
             <h2>Registration</h2>
-            <form action="#">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
 
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <input type="text" id="Username" required ="Username">
+                    <input type="text" id="Username" name="Username" required ="Username">
                     <label>Username</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" id="registerEmailInput" required ="Email">
+                    <input type="email" id="registerEmailInput" name="registerEmailInput" required ="Email">
 
                     <label>Email</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" id="registerPasswordInput" required ="Password">
+                    <input type="password" id="registerPasswordInput" name="registerPasswordInput" required ="Password">
                     <label>Password</label>
                 </div>
 
@@ -115,13 +91,14 @@ session_start();
                     <label><input type="checkbox" id="agreeCheckbox" > I agree to the terms and conditions. </label>
                 </div>
 
-                <button type="submit" class="btn"   onclick="validateRegisterForm() ">Register</button>
+                <button type="submit" class="btn" name="registerBtn"  onclick="validateRegisterForm() ">Register</button>
                 <div class="login-register">
                     <p>Already have an account? <a href="#" class="login-link">Login</a>
                     </p>
                 </div>
 
             </form>
+             <?php include_once '../controller/registerController.php';?>
         </div>
     </div>
     
@@ -138,5 +115,7 @@ session_start();
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
+
+
 </body>
 </html>
