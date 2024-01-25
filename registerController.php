@@ -1,6 +1,6 @@
 <?php
-include_once '../repository/userRepository.php';
-include_once '../models/user.php';
+include_once 'userRepository.php';
+include_once 'user.php';
 
 if(isset($_POST['registerBtn'])){
     if(empty($_POST['registerEmailInput']) ||

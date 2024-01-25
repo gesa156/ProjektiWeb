@@ -98,7 +98,7 @@
                 </div>
 
             </form>
-             <?php include_once '../controller/registerController.php';?>
+             <?php include ('RegisterController.php');?>
         </div>
     </div>
     

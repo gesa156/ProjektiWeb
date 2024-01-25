@@ -21,7 +21,7 @@
              </tr>
 
              <?php 
-             include_once '../repository/userRepository.php';
+             include_once 'userRepository.php';
 
              $userRepository = new UserRepository();
 
@@ -31,17 +31,16 @@
                 echo 
                 "
                 <tr>
-                     <td>$user[Id]</td>
-                    
-                     <td>$user[Email] </td>
-                     <td>$user[Username] </td>
-                     <td>$user[Password] </td>
-                     <td><a href='edit.php?id=$user[Id]'>Edit</a> </td>
-                     <td><a href='delete.php?id=$user[Id]'>Delete</a></td>
-                     
+                     <td>" . (isset($user['Id']) ? $user['Id'] : "") . "</td>
+                     <td>" . (isset($user['Email']) ? $user['Email'] : "") . "</td>
+                     <td>" . (isset($user['Username']) ? $user['Username'] : "") . "</td>
+                     <td>" . (isset($user['Password']) ? $user['Password'] : "") . "</td>
+                     <td><a href='edit.php?id=" . (isset($user['Id']) ? $user['Id'] : "") . "'>Edit</a></td>
+                     <td><a href='delete.php?id=" . (isset($user['Id']) ? $user['Id'] : "") . "'>Delete</a></td>
                 </tr>
                 ";
-             }
+            }
+            
 
              
              
