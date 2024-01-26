@@ -74,6 +74,17 @@ class UserRepository {
    } 
 }
 
+ function getRole($r){
+
+    $conn= $this->connection;
+
+    $sql=" SELECT * FROM user WHERE role=?";
+    $statement=$conn->prepare($sql);
+    $statement->execute();
+    $result= $statment->$statement-> fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 // Example usage:
 // $userRepo = new UserRepository;
 // $userRepo->updateUser('1111', 'SSS', 'SSS', 'SSS');

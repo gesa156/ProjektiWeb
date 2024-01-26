@@ -4,16 +4,9 @@
 $userId = $_GET['id'];
 include_once 'userRepository.php';
 
-
-
 $userRepository = new UserRepository();
-
-$user  = $userRepository->getUserById($userId);
-
-
+$user = $userRepository->getUserById($userId);
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,11 +18,11 @@ $user  = $userRepository->getUserById($userId);
 </head>
 <body>
     <h3>Edit User</h3>
-    <form action="" method="post">
-        <input type="text" name="id"  value="<?=$user['Id']?>" readonly> <br> <br>
-        <input type="text" name="username"  value="<?=$user['Username']?>"> <br> <br>
-        <input type="text" name="email"  value="<?=$user['Email']?>"> <br> <br>
-        <input type="text" name="password"  value="<?=$user['Password']?>"> <br> <br>
+    <form action="edit.php?id=<?= $user['id'] ?>" method="post">
+        <input type="text" name="id" value="<?= $user['id'] ?>" readonly> <br> <br>
+        <input type="text" name="username" value="<?= $user['username'] ?>"> <br> <br>
+        <input type="text" name="email" value="<?= $user['email'] ?>"> <br> <br>
+        <input type="text" name="password" value="<?= $user['password'] ?>"> <br> <br>
 
         <input type="submit" name="editBtn" value="save"> <br> <br>
     </form>
@@ -37,16 +30,13 @@ $user  = $userRepository->getUserById($userId);
 </html>
 
 <?php 
-
 if(isset($_POST['editBtn'])){
-    $id = $user['Id'];
+    $id = $user['id'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $userRepository->updateUser($id,$username,$email,$password);
-    header("location:dashboard.php");
+    $userRepository->updateUser($id, $username, $email, $password);
+    header("location: dashboard.php");
 }
-
-
 ?>
