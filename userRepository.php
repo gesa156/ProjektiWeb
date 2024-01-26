@@ -1,7 +1,7 @@
 <?php 
 include_once 'databaseConnection.php';
 
-class UserRepository{
+class UserRepository {
     private $connection;
 
     function __construct(){
@@ -9,9 +9,7 @@ class UserRepository{
         $this->connection = $conn->startConnection();
     }
 
-
     function insertUser($user){
-
         $conn = $this->connection;
 
         $id = $user->getId();
@@ -19,14 +17,13 @@ class UserRepository{
         $email = $user->getEmail();
         $password = $user->getPassword();
 
-        $sql = "INSERT INTO user (id,username,email,password) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO user (id, username, email, password) VALUES (?, ?, ?, ?)";
 
         $statement = $conn->prepare($sql);
 
-        $statement->execute([$id,$username,$email,$username,$password]);
+        $statement->execute([$id, $username, $email, $password]);
 
-        echo "<script> alert('User has been inserted successfuly!'); </script>";
-
+        echo "<script>alert('User has been inserted successfully!');</script>";
     }
 
     function getAllUsers(){
@@ -43,24 +40,25 @@ class UserRepository{
     function getUserById($id){
         $conn = $this->connection;
 
-        $sql = "SELECT * FROM user WHERE id='$id'";
+        $sql = "SELECT * FROM user WHERE id=?";
 
-        $statement = $conn->query($sql);
+        $statement = $conn->prepare($sql);
+        $statement->execute([$id]);
         $user = $statement->fetch();
 
         return $user;
     }
 
-    function updateUser($id,$username,$email,$password){
+    function updateUser($id, $username, $email, $password){
          $conn = $this->connection;
 
-         $sql = "UPDATE user SET username=? , email=?, password=? WHERE id=?";
+         $sql = "UPDATE user SET username=?, email=?, password=? WHERE id=?";
 
          $statement = $conn->prepare($sql);
 
-         $statement->execute([$username,$email,$password,$id]);
+         $statement->execute([$username, $email, $password, $id]);
 
-         echo "<script>alert('update was successful'); </script>";
+         echo "<script>alert('Update was successful');</script>";
     } 
 
     function deleteUser($id){
@@ -72,12 +70,11 @@ class UserRepository{
 
         $statement->execute([$id]);
 
-        echo "<script>alert('delete was successful'); </script>";
+        echo "<script>alert('Delete was successful');</script>";
    } 
 }
 
-//  $userRepo = new UserRepository;
-
-//  $userRepo->updateUser('1111','SSS','SSS','SSS','SSS','SSS');
-
+// Example usage:
+// $userRepo = new UserRepository;
+// $userRepo->updateUser('1111', 'SSS', 'SSS', 'SSS');
 ?>

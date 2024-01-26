@@ -37,6 +37,7 @@
         showPage(1);
         pageButtons.forEach((button) => button.addEventListener('click', () => btnClicked(button)));
     });
+    
 
     document.addEventListener("DOMContentLoaded", function () {
             let slideIndex = 0;
@@ -102,9 +103,6 @@
                 <img src="parrots.webp" style="width: 50%; height: 50%;   margin-left: 16%;">
                 
             </div>
-    
-            
-    
             <div style="text-align:center">
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -112,6 +110,8 @@
                 
             </div>
         </div>
+
+
 
         <div class="bgfoto">    
         </div>

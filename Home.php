@@ -29,10 +29,6 @@
         </nav>
     </header>
     
-
- 
- 
-
      <div class="cc">
         <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
         <div class="from-box login">
