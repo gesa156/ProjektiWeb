@@ -15,9 +15,50 @@ $user = $userRepository->getUserById($userId);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(136, 183, 206);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: blueviolet;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #2ecc71;
+            color: #ffffff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+           
+           
+        }
+
+       
+    </style>
 </head>
 <body>
-    <h3>Edit User</h3>
+   
     <form action="edit.php?id=<?= $user['id'] ?>" method="post">
         <input type="text" name="id" value="<?= $user['id'] ?>" readonly> <br> <br>
         <input type="text" name="username" value="<?= $user['username'] ?>"> <br> <br>
