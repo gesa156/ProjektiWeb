@@ -14,10 +14,12 @@ body {
     background: rgb(136, 183, 206);
     background-size: cover;
     background-position: center;
+    padding-top: 0;
+    padding-top: 80px;
 }
 
 .header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -26,7 +28,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 99;
+    z-index: 10;
 }
 
 .logo {
@@ -89,6 +91,8 @@ main {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
+    padding-top: 120px;
 }
 
 .bgfoto {
@@ -207,17 +211,6 @@ main {
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
 img {vertical-align: middle;}
-
-
-    
-
-.slideshow-container {
-  max-width: 900px;
-  position: relative;
-  margin-top: 10%; 
-    }
-
-
 
 
 .numbertext {

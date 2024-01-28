@@ -17,7 +17,6 @@ function fetchAnimalsByCategory($conn, $category) {
     $sql->bind_param("s", $category);
     $sql->execute();
     $result = $sql->get_result();
-
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo '<div class="rubrika">';
@@ -31,6 +30,7 @@ function fetchAnimalsByCategory($conn, $category) {
 
     $sql->close();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +65,8 @@ function fetchAnimalsByCategory($conn, $category) {
 
             pageButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
+
+            window.scrollTo(0, 0);
         }
         showPage(1);
         pageButtons.forEach((button) => button.addEventListener('click', () => btnClicked(button)));
@@ -72,27 +74,22 @@ function fetchAnimalsByCategory($conn, $category) {
     
 
     document.addEventListener("DOMContentLoaded", function () {
-            let slideIndex = 0;
-            showSlides();
+        let slideIndex = 0;
+        showSlides();
 
-            function showSlides() {
-                let i;
-                let slides = document.getElementsByClassName("mySlides");
-                let dots = document.getElementsByClassName("dot");
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";
-                }
-                slideIndex++;
-                if (slideIndex > slides.length) {
-                    slideIndex = 1;
-                }
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex - 1].style.display = "block";
-                dots[slideIndex - 1].className += " active";
-                setTimeout(showSlides, 3000); 
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
             }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
         });
 </script>
 <body>
@@ -111,38 +108,24 @@ function fetchAnimalsByCategory($conn, $category) {
         </nav>
     </header>
     <main>
-        <div class="slideshow-container">
-            <div class="mySlides fade">
-                <div class="numbertext"  style=" margin-left:53%;"    >1 / 4<br>Mammals</div>
-                <img src="ff.jpg" style="width: 40%; height: 40%; margin-left: 22%;">
-            
-            </div>
-    
-            <div class="mySlides fade">
-                <div class="numbertext"  style=" margin-left: 54%;">2 / 4 <br>Reptiles </div>
-                <img src="chameleon.jpg"  style="width: 40%; height: 40%; margin-left: 22%;">
-              
-            </div>
-    
-            <div class="mySlides fade">
-                <div class="numbertext" style="margin-left: 52%;">3 / 4 <br>Amphibians</div>
-                <img src="aaa.jpg"  style="width: 40%; height: 40%; margin-left: 22%;">
-             
-            </div>
-    
-            <div class="mySlides fade">
-                <div class="numbertext" style="margin-left: 59%;">4 / 4 <br>Birds</div>
-                <img src="parrots.webp" style="width: 50%; height: 50%;   margin-left: 16%;">
-                
-            </div>
-            <div style="text-align:center">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                
-            </div>
-        </div>
-
+    <!-- Slider -->
+    <div class="slideshow-container" style="max-width: 500px; margin: 110px auto 0 auto; position: relative; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 10px;">
+    <div class="mySlides fade" style="display: none; width: 100%; height: auto;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Eurasian_wolf_2.jpg" style="width: 100%; height: auto; border-radius: 10px 10px 0 0; object-fit: cover;">
+    </div>
+    <div class="mySlides fade" style="display: none; width: 100%; height: auto;">
+        <img src="https://media.graphassets.com/resize=height:360,width:500/output=format:webp/9JrMeDVZTbO7AKMsI5NL" style="width: 100%; height: auto; border-radius: 10px 10px 0 0; object-fit: cover;">
+    </div>
+    <div class="mySlides fade" style="display: none; width: 100%; height: auto;">
+        <img src="https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSQ0vQ0fQvRZloilSoCObNMBPznznKNG8b7Z6IBuzKHF-qszEz8zaCshcx95vKrzzLb" style="width: 100%; height: auto; border-radius: 10px 10px 0 0; object-fit: cover;">
+    </div>
+    <div class="mySlides fade" style="display: none; width: 100%; height: auto;">
+        <img src="https://nationaltoday.com/wp-content/uploads/2022/07/25-World-Parrot-Day-1200x834.jpg" style="width: 100%; height: auto; border-radius: 10px 10px 0 0; object-fit: cover;">
+    </div>
+    <div class="mySlides fade" style="display: none; width: 100%; height: auto;">
+        <img src="https://discovery.sndimg.com/content/dam/images/discovery/fullset/2022/2/23/GettyImages-a0047-000046.jpg.rend.hgtvcom.1280.720.suffix/1645674239984.jpeg" style="width: 100%; height: auto; border-radius: 10px 10px 0 0; object-fit: cover;">
+    </div>
+</div>
 
 
         <div class="bgfoto">    
@@ -157,7 +140,7 @@ function fetchAnimalsByCategory($conn, $category) {
     </div>
         </div>
         
-        <div class="page" id="page2">
+        <div class="page hidden" id="page2">
             <div class="latestphoto">
                 <h3>Reptiles</h3>
                 <p>Page <button onclick="btnClicked(2)" class="active">2</button> of 4</p>
@@ -167,7 +150,7 @@ function fetchAnimalsByCategory($conn, $category) {
     </div>
         </div>
         
-        <div class="page" id="page3">
+        <div class="page hidden" id="page3">
             <div class="latestphoto">
                 <h3>Amphibians</h3>
                 <p>Page <a href="#page3"><button onclick="btnClicked(3, this)" class="active">3</button></a> of 4</p>
@@ -178,14 +161,14 @@ function fetchAnimalsByCategory($conn, $category) {
         </div>
         
 
-        <div class="page" id="page4">
+        <div class="page hidden" id="page4">
             <div class="latestphoto">
                 <h3>Birds</h3>
                 <p>Page <button onclick="btnClicked(4, this)" class="active">4</button> of 4</p>
             </div>
             <div class="fotografit">
         <?php fetchAnimalsByCategory($conn, 'Birds'); ?>
-    </div>
+       
             </div>
         </div>
 
@@ -199,7 +182,6 @@ function fetchAnimalsByCategory($conn, $category) {
         </div>
     </main>
    
-
         </body>
         </html>
         
