@@ -15,9 +15,7 @@
             <a href="donation.php">Donate</a>
             <a href="ContactUs.php">Contact Us</a>
             <a href="Home.php">Home</a>
-            <a href="login.php" class="btnLogin">Login</a> <!-- Link to login.php -->
-        
-        
+            <a href="login.php" class="btnLogin">Login</a> 
         </nav>
     </header>
 

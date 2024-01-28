@@ -208,7 +208,6 @@ $animals = getAnimals($conn);
         <h2 class="logo">PawPlanet Admin</h2>
         <nav class="navigation">
             <a href="collection.php">View Collection</a>
-            <!-- Add other navigation links if needed -->
         </nav>
     </header>
 

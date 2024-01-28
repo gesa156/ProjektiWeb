@@ -29,7 +29,6 @@
         </nav>
     </header>
     
-    
     <div class="cover">
         <h1 class="logo">WELCOME TO&nbsp;<ion-icon name="paw-sharp"></ion-icon>PLANET</h1>
 		<p> <b> Discover and appreciate where nature meets the web.</b><br> <b>Understand the animal world!</b> </p>
