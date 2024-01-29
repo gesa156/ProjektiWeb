@@ -17,7 +17,8 @@
         <a href="ContactUs.php">Contact Us</a>
         <a href="Home.php">Home</a>
         <button class="btnLogin-popup" style="display:none;" >Login</button>
-        <button class="btnLogout-popup">Logout</button>
+        <a href="logout.php" >Logout</a>
+
 
     </nav>
 </header>

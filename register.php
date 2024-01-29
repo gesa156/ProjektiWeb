@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,10 +47,10 @@
                 <div class="remember-forget">
                     <label><input type="checkbox" id="agreeCheckbox" > I agree to the terms and conditions. </label>
                 </div>
-            <button type="submit" class="btn" onclick="validateRegisterForm()">Register</button>
+            <button type="submit" class="btn" name="registerBtn" onclick="validateRegisterForm()">Register</button>
             <p>Already have an account? <a href="login.php">Login</a></p>
             </form>
-             <?php include ('RegisterController.php');?>
+             <?php include_once 'RegisterController.php';?>
         </div>
     </div>
 
