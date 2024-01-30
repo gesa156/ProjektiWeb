@@ -17,7 +17,7 @@
             <a href="donation.php">Donate</a>
             <a href="ContactUs.php">Contact Us</a>
             <a href="Home.php">Home</a>
-            <a href="login.php" class="btnLogin">Login</a> <!-- Link to login.php -->
+            <a href="login.php" class="btnLogin">Login</a> 
     
         </nav>
     </header>
@@ -44,16 +44,15 @@
                     <label>Password</label>
                 </div>
 
-                <div class="remember-forget">
-                    <label><input type="checkbox" id="agreeCheckbox" > I agree to the terms and conditions. </label>
-                </div>
+              
             <button type="submit" class="btn" name="registerBtn" onclick="validateRegisterForm()">Register</button>
             <p>Already have an account? <a href="login.php">Login</a></p>
             </form>
              <?php include_once 'RegisterController.php';?>
         </div>
     </div>
-
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

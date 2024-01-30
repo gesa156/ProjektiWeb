@@ -22,7 +22,7 @@ if(isset($_SESSION['role'])){
 <body>
 
     <header class="header">
-        <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon> Planet</h2>
+    <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon>Planet</h2>
         <nav class="navigation">
             <a href="collection.php">Collections</a>
             <a href="funfacts.php">Fun Facts</a>
@@ -46,6 +46,5 @@ if(isset($_SESSION['role'])){
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </body>
 </html>

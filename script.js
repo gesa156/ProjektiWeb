@@ -49,7 +49,7 @@ function validateLoginForm() {
     }
 
     alert('Login Successful');
-    // After successful login
+    
 document.querySelector('.btnLogin-popup').style.display = 'none';
 document.querySelector('.btnLogout-popup').style.display = 'block';
 
@@ -63,27 +63,27 @@ function validateRegisterForm() {
 
 
     var usernameRegex = /^[a-zA-Z\s]+$/;
-    if (!usernameRegex.test(Username)) {
+    if (!usernameRegex.test(username)) {
         alert('Please enter a valid username.');
         return false;
     }
 
     var emailInputRegex = /[a-zA-Z._-]+@[a-z]+\.[a-z]{2,3}$/;
     
-    if (!emailInputRegex.test(registerEmailInput)) {
+    if (!emailInputRegex.test(emailInput)) {
         alert('Please enter a valid email.');
         return false;
     }
 
     var passwordRegex = /^.{8,16}$/;
     
-    if (!passwordRegex.test(registerPasswordInput)) {
+    if (!passwordRegex.test(password)) {
         alert('Please enter a valid password.');
         return false;
     }
 
     alert('Registration Successful');
-    // After successful login
+    
 document.querySelector('.btnLogin-popup').style.display = 'none';
 document.querySelector('.btnLogout-popup').style.display = 'block';
 

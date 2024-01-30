@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    
+    echo '<script>alert("Please log in to access this page."); window.location.href = "login.php";</script>';
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +25,9 @@
             <a href="funfacts.php">Fun Facts</a>
             <a href="donation.php">Donate</a>
             <a href="ContactUs.php">Contact Us</a>
-            <a href="#">Home</a>
+            <a href="Home.php">Home</a>
             <button class="btnLogin-popup" style="display:none;" >Login</button>
-            <button class="btnLogout-popup">Logout</button>
+        <a href="logout.php" >Logout</a>
         </nav>
     </header>
     <div class="container">

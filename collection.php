@@ -1,5 +1,26 @@
 
 <?php
+
+
+/*session_start();
+
+
+if (!isset($_SESSION['username'])) {
+  
+    header("Location: login.php");
+    exit("Please log in to access this page."); 
+}*/
+
+
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    
+    echo '<script>alert("Please log in to access this page."); window.location.href = "login.php";</script>';
+    exit();
+}
+
+
 // Database connection
 $servername = "localhost";
 $username = "root";
@@ -95,7 +116,8 @@ function fetchAnimalsByCategory($conn, $category) {
 <body>
 
     <header class="header">
-        <h2 class="logo">PawPlanet</h2>
+        
+        <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon>Planet</h2>
         <nav class="navigation">
             <a href="collection.php">Collections</a>
             <a href="funfacts.php">Fun Facts</a>
@@ -103,7 +125,7 @@ function fetchAnimalsByCategory($conn, $category) {
             <a href="ContactUs.php">Contact Us</a>
             <a href="Home.php">Home</a>
             <button class="btnLogin-popup" style="display:none;" >Login</button>
-            <button class="btnLogout-popup">Logout</button>
+        <a href="logout.php" >Logout</a>
 
         </nav>
     </header>
@@ -182,6 +204,8 @@ function fetchAnimalsByCategory($conn, $category) {
         </div>
     </main>
    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         </body>
         </html>
         
