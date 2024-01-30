@@ -1,12 +1,43 @@
 <?php
 session_start();
 
+// Check if the user is logged in, if not then redirect to login page
 if (!isset($_SESSION['username'])) {
-    
     echo '<script>alert("Please log in to access this page."); window.location.href = "login.php";</script>';
     exit();
 }
+
+// Database connection parameters
+$servername = "localhost";
+$username = "root"; 
+$password = ""; 
+$dbname = "animals"; 
+
+// Create database connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// SQL query to fetch animals and their fun facts
+$sql = "SELECT name, funfact, image_url FROM animal_details";
+$result = $conn->query($sql);
+
+$animals = [];
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $animals[] = $row;
+    }
+} else {
+    echo "0 results";
+}
+
+// Close database connection
+$conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -263,187 +294,21 @@ width: 300px;
 
     </nav>
 </header>
-   <main>
+<main>
   <div class="container">
     <br><br><br>
-    <div class="sorting-buttons">
-      <button onclick="sortImages('all')">All</button>
-      <button onclick="sortImages('mammals')">Mammals</button>
-      <button onclick="sortImages('reptiles')">Reptiles</button>
-      <button onclick="sortImages('amphibians')">Amphibians</button>
-      <button onclick="sortImages('birds')">Birds</button>
-      <button onclick="sortImages('other')">Other</button>
-    </div>
-    <br><br>
 
     <div class="image-gallery">
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://cdn-prd.content.metamorphosis.com/wp-content/uploads/sites/6/2022/12/shutterstock_781327003-1.jpg" alt="Image 1">
-        <div class="caption"> <b>Cats</b> <br>Cats spend 70% of their lives sleeping.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://pbs.twimg.com/media/CjojP_nWEAA517S.jpg" alt="Image 2">
-        <div class="caption"> <b>Squirrels</b> <br> To recognize each other, squirrels kiss when they encounter.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://cdn.mos.cms.futurecdn.net/uiCrUgVCf64TzEdTM8x9aD.jpg" alt="Image 2">
-        <div class="caption"> <b>Elephants</b> <br> Elephants Have an Excellent Memory.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://thumbor.bigedition.com/dolphins/yDAeLWB-ZoAHDRMbAOdeOuWgm7o=/69x0:1184x836/800x0/filters:quality(80)/granite-web-prod/ac/ca/acca6dd0e761429c981195cce3a0d3ed.jpeg" alt="Image 2">
-        <div class="caption"> <b>Dolphins </b> <br> Dolphins Live a Long Time.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="birds">
-        <img src="https://www.allaboutbirds.org/guide/assets/photo/308074031-480px.jpg" alt="Pigeon">
-        <div class="caption">
-          <b>Pigeon</b><br>Highly intelligent birds and have been trained to deliver messages in the past.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="birds">
-        <img src="https://nzbirdsonline.org.nz/sites/all/files/2X2A1697%20King%20Penguin%20bol.jpg" alt="Penguins">
-        <div class="caption">
-          <b>Penguins</b><br>Birds adapted to aquatic life, known for their unique waddling walk.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="birds">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Woodpecker_20040529_151837_1c_cropped.JPG/640px-Woodpecker_20040529_151837_1c_cropped.JPG" alt="Woodpeckers">
-        <div class="caption">
-          <b>Woodpeckers</b><br>Birds with specialized beaks for drilling into tree bark in search of insects.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="birds">
-        <img src="https://media.audubon.org/nas_birdapi/web_apa_2015_lorirothstein_278631_bald_eagle_kk-adult.jpg" alt="Bald Eagle">
-        <div class="caption">
-          <b>Bald Eagle</b><br>The Bald Eagle, a majestic bird of prey and a symbol of freedom and strength.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="birds">
-        <img src="https://res.cloudinary.com/roundglass/image/upload/w_1104,h_736,c_fill/q_auto:best,f_auto/v1632484088/rg/collective/media/common-kingfisher-dhritiman-mukherjee-1632484087720.jpg" alt="Kingfisher">
-        <div class="caption">
-          <b>Kingfisher</b><br>The Kingfisher, a brightly colored bird known for its diving skills to catch fish.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="birds">
-        <img src="https://nationaltoday.com/wp-content/uploads/2022/07/25-World-Parrot-Day-1200x834.jpg" alt="Parrot">
-        <div class="caption">
-          <b>Parrot</b><br>An intelligent and colorful bird known for its ability to mimic human speech.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://a-z-animals.com/media/2022/09/iStock-492611032-1024x682.jpg" alt="Image 11">
-        <div class="caption"> <b>Lion</b> <br> <br>Lions hunt durning storms.</div>
-      </div>
-      <div class="zoom-wrapper"data-category="mammals">
-        <img src="https://www.ranthamborenationalpark.com/blog/wp-content/uploads/2018/03/Tiger-Mating.jpg" alt="Image 12">
-        <div class="caption"><b>Tiger</b><br><br>Tigers have antiseptic saliva</div>
-      </div>
-      <div class="zoom-wrapper" data-category="birds">
-        <img src="https://www.allaboutbirds.org/guide/assets/photo/297363481-480px.jpg" alt="Owl">
-        <div class="caption">
-          <b>Owl</b><br>Fun Fact: Owls can rotate their heads up to 270 degrees without moving their bodies.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="amphibians">
-        <img src="https://static.scientificamerican.com/sciam/cache/file/41DF7DA0-EE58-4259-AA815A390FB37C55_source.jpg" alt="Frog">
-        <div class="caption">
-          <b>Frog</b><br>Known for its distinctive jumping ability and unique croaking sounds.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://t4.ftcdn.net/jpg/02/65/70/73/360_F_265707361_N79UdgpbERwsjHZxIWRixuodCKqYsBF5.jpg" alt="Image 3">
-        <div class="caption"> <b>Koala</b> <br>The laziest animal in the world. They sleep for around 20 hours a day!</div>
-      </div>
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://img.freepik.com/premium-photo/cute-cow-cow-baby-generative-ai_861549-866.jpg?w=360" alt="Image 4">
-        <div class="caption"> <b>Cows</b> <br>Cows produce more milk when they listen to quiet music.</div>
-      </div>
-      <div class="zoom-wrapper"data-category="birds">
-        <img src="https://images.ctfassets.net/cnu0m8re1exe/1iE1Yj15ayy967F0SxbI00/b113244bebba2ba6ffb92f3298c51621/shutterstock_1221724678.jpg" alt="Image 5">
-        <div class="caption"><b>Hummingbirds</b> <br>Hummingbirds are the only birds that can fly backwards.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="other">
-        <img src="https://imagine5.com/wp-content/uploads/2021/02/5_seafood-business_01_hero_W2Y5J1_2000.jpg" alt="Image 6">
-        <div class="caption"> <b>Starfish</b> <br> <br>Starfish do not have a brain.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://www.mediastorehouse.com.au/p/708/giraffe-drinking-water-25371438.jpg.webp" alt="Image 7">
-        <div class="caption"> <b>Giraffe</b> <br>A giraffe's neck is too short to reach the ground.</div>
-      </div>
-      <div class="zoom-wrapper" data-category="mammals">
-        <img src="https://img.freepik.com/premium-photo/panda-is-swimming-beautiful-illustration-picture-generative-ai_146671-94784.jpg" alt="Image 8">
-        <div class="caption"> <b>Panda</b> <br>Pandas can swim and even climb trees.</div>
-      </div>
-      <div class="zoom-wrapper"data-category="mammals">
-        <img src="https://www.petlandflorida.com/wp-content/uploads/2018/03/Petland_Bunny.jpg" alt="Image 9">
-        <div class="caption"> <b>Rabbit</b> <br>Bunnies binky when they are happy</div>
-      </div>
-      <div class="zoom-wrapper"data-category="mammals">
-        <img src="https://bloximages.chicago2.vip.townnews.com/independentri.com/content/tncms/assets/v3/editorial/3/9d/39de6e58-b6b7-11e8-a561-cf1d4a759335/5b9956da22d78.image.jpg?crop=1609%2C845%2C0%2C221&resize=1200%2C630&order=crop%2Cresize" alt="Image 10">
-        <div class="caption"> <b>Otters</b> <br> Otters hold hands while sleeping,so they don’t float away from each other.</div>
-      </div>
-    <div class="zoom-wrapper" data-category="amphibians">
-      <img src="https://animals.sandiegozoo.org/sites/default/files/2020-02/salamander-giant_0.jpg" alt="Giant Salamanders">
-      <div class="caption">
-        <b>Giant Salamanders</b><br>Found in freshwater habitats with a fascinating life cycle.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="reptiles">
-      <img src="chameleon.jpg" alt="Chameleon">
-      <div class="caption">
-        <b>Chameleon</b><br>A master of camouflage with the ability to change color to blend into its surroundings.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="reptiles">
-      <img src="Gecko.jpeg" alt="Gecko">
-      <div class="caption">
-        <b>Gecko</b><br>Known for its adhesive toe pads allowing it to climb on various surfaces.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="reptiles">
-      <img src="https://i.natgeofe.com/n/4ab840f4-92fb-424c-a642-f58105e0b07d/NationalGeographic_1066541_4x3.jpg" alt="Gila monster">
-      <div class="caption">
-        <b>Gila monster</b><br>A venomous lizard found in the southwestern United States and Mexico.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="reptiles">
-      <img src="dd.jpeg" alt="Komodo dragon">
-      <div class="caption">
-        <b>Komodo dragon</b><br>The world's largest lizard, known for its impressive size and deadly bite.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="reptiles">
-      <img src="Boa Constrictor.jpeg" alt="Boa Constrictor">
-      <div class="caption">
-        <b>Boa Constrictor</b><br>A large snake known for its powerful constriction method when hunting prey.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="reptiles">
-      <img src="Burmese Python.jpeg" alt="Burmese Python">
-      <div class="caption">
-        <b>Burmese Python</b><br>One of the largest snake species, known for its beautiful pattern and size.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="reptiles">
-      <img src="Anaconda.jpeg" alt="Anaconda">
-      <div class="caption">
-        <b>Anaconda</b><br>A large aquatic snake, known for its incredible size.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="reptiles">
-      <img src="https://www.naturesafariindia.com/wp-content/uploads/2023/10/King-cobra-in-Kaziranga-national-park-india-930x620.jpg" alt="King Cobra">
-      <div class="caption">
-        <b>King Cobra</b><br>The world's longest venomous snake, known for its impressive hood and deadly bite.
-      </div>
-    </div>
-    <div class="zoom-wrapper" data-category="amphibians">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Centrolene_buckleyi01.jpeg/330px-Centrolene_buckleyi01.jpeg" alt="Lissamphibia">
-      <div class="caption">
-        <b>Lissamphibia</b><br>A subclass of amphibians including frogs, salamanders, and caecilians.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="amphibians">
-      <img src="https://mdc.mo.gov/sites/default/files/mo_nature/media/images/2010/05/american_toad.jpg" alt="Toads">
-      <div class="caption">
-        <b>Toads</b><br>Amphibians characterized by dry, warty skin and parotoid glands.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="other">
-      <img src="https://reefbuilders.com/wp-content/blogs.dir/1/files/2016/01/longfin-clownfish-1.jpg" alt="Clown Fish">
-      <div class="caption">
-        <b>Clown Fish</b><br>Clown fish are known for forming symbiotic relationships with sea anemones.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="other">
-      <img src="https://discovery.sndimg.com/content/dam/images/discovery/fullset/2022/2/23/GettyImages-a0047-000046.jpg.rend.hgtvcom.1280.720.suffix/1645674239984.jpeg" alt="Goldfish">
-      <div class="caption">
-        <b>Goldfish</b><br>Goldfish have a memory span of at least three months and can recognize their owners.</div>
-    </div>
-    <div class="zoom-wrapper" data-category="other">
-      <img src="https://www.swellpets.co.uk/wp-content/uploads/shutterstock_1559114396-1-880x660.jpg" alt="Tropical Fish">
-      <div class="caption">
-        <b>Tropical Fish</b><br>Come in a wide variety of colors, shapes, and sizes, adding vibrancy to coral reefs.</div>
-    </div>
+                <?php foreach ($animals as $animal): ?>
+                    <div class="zoom-wrapper">
+                        <img src="<?php echo htmlspecialchars($animal['image_url']); ?>" alt="<?php echo htmlspecialchars($animal['name']); ?>">
+                        <div class="caption">
+                            <b><?php echo htmlspecialchars($animal['name']); ?></b><br>
+                            <?php echo htmlspecialchars($animal['funfact']); ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
   </div>
 </main>
   <footer>
