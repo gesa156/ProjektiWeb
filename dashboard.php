@@ -99,21 +99,49 @@
         opacity: 0.9;
         background-color: inherit;
     }
+
+
+
+
+    .goback-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right:93%;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+       
+        .goback-btn:hover {
+            background-color: #45a049;
+        }
+
+
 </style>
 
 <body>
+    
 <header class="header">
         <h2 class="logo">PawPlanet Admin</h2>
         <nav class="navigation">
             <a href="login.php">View Home</a>
         </nav>
+        <a href="Login.php" class="goback-btn">Go Back</a>
     </header>
+
     <table border="1">
         <tr>
             <th>ID</th>
             <th>USERNAME</th>
             <th>EMAIL</th>
             <th>PASSWORD</th>
+            <th>ROLE</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -131,10 +159,11 @@
                     <td>{$user['username']}</td>
                     <td>{$user['email']}</td>
                     <td>{$user['password']}</td>
+                    <td>{$user['role']}</td>
                     <td class='edit-cell'><a class='edit-link' href='edit.php?id={$user['id']}'>Edit</a></td>
                     <td class='delete-cell'><a class='delete-link' href='delete.php?id={$user['id']}'>Delete</a></td>
-                </tr>
-                ";
+                  </tr>
+         ";
             }
         ?>
     </table>

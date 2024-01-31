@@ -64,18 +64,19 @@ $user = $userRepository->getUserById($userId);
         <input type="text" name="username" value="<?= $user['username'] ?>"> <br> <br>
         <input type="text" name="email" value="<?= $user['email'] ?>"> <br> <br>
         <input type="text" name="password" value="<?= $user['password'] ?>"> <br> <br>
-
+      
         <input type="submit" name="editBtn" value="save"> <br> <br>
     </form>
 </body>
 </html>
 
 <?php 
-if(isset($_POST['editBtn'])){
+if(isset($_POST['editBtn'])){ 
     $id = $user['id'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+  
 
     $userRepository->updateUser($id, $username, $email, $password);
     header("location: dashboard.php");

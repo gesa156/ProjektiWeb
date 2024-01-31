@@ -121,6 +121,25 @@ $facts = fetchFacts($conn);
             background-color: #45a049;
         }
 
+        .goback-btn  {
+            display: inline-block;
+            margin-right:93%;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: right;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+       
+        .goback-btn:hover {
+            background-color: #45a049;
+        }
+
     </style>
 </head>
 <body>
@@ -129,6 +148,7 @@ $facts = fetchFacts($conn);
         <nav class="navigation">
             <a href="funfacts.php">View Funfact</a>
         </nav>
+        <a href="Login.php" class="goback-btn">Go Back</a>
     </header>
     <div class="animal-cards-container">
     <?php foreach ($facts as $fact): ?>

@@ -202,6 +202,27 @@ $animals = getAnimals($conn);
     background-color: #c9302c;
 }
 
+
+.goback-btn  {
+            display: inline-block;
+            margin-right:93%;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: right;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+       
+        .goback-btn:hover {
+            background-color: #45a049;
+        }
+
+
 </style>
 <body>
     <header class="header">
@@ -209,8 +230,9 @@ $animals = getAnimals($conn);
         <nav class="navigation">
             <a href="collection.php">View Collection</a>
         </nav>
+        <a href="Login.php" class="goback-btn">Go Back</a>
     </header>
-
+    
     <main>
         <div class="admin-section">
             <h3><?php echo $editingAnimal ? 'Edit Animal' : 'Add New Animal'; ?></h3>

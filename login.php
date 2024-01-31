@@ -15,9 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role']; 
-    } else {
-        
-        $error_message = "Login failed. Please check your email and password.";
+    }  else {
+        echo "<script>alert('Invalid Email or Password');</script>";
     }
 }
 ?>
