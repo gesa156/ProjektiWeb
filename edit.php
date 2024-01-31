@@ -64,7 +64,11 @@ $user = $userRepository->getUserById($userId);
         <input type="text" name="username" value="<?= $user['username'] ?>"> <br> <br>
         <input type="text" name="email" value="<?= $user['email'] ?>"> <br> <br>
         <input type="text" name="password" value="<?= $user['password'] ?>"> <br> <br>
-      
+        <label for="role">Select Role:</label>
+    <select name="role">
+        <option value="admin" <?= ($user['role'] == 'admin') ? 'selected' : '' ?>>Admin</option>
+        <option value="user" <?= ($user['role'] == 'user') ? 'selected' : '' ?>>User</option>
+    </select> <br> <br>
         <input type="submit" name="editBtn" value="save"> <br> <br>
     </form>
 </body>
@@ -76,9 +80,10 @@ if(isset($_POST['editBtn'])){
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $role = $_POST['role'];
   
 
-    $userRepository->updateUser($id, $username, $email, $password);
+    $userRepository->updateUser($id, $username, $email, $password ,$role);
     header("location: dashboard.php");
 }
 ?>
