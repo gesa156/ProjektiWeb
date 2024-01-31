@@ -31,7 +31,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login - Animal Planet</title>
     <link rel="stylesheet" href="styleee.css">
 </head>
+<style>
+   /* Style for the dropdown button */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px; /* Add some space to the left */
+}
 
+.dropbtn {
+    background-color: #007bff; /* Aesthetic blue background */
+    color: white; /* White text */
+    padding: 12px 20px; /* Generous padding for a better button feel */
+    font-size: 16px; /* Font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #0056b3; /* Darker shade of blue on hover/focus */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f9fa; /* Light background for the dropdown */
+    min-width: 200px; /* Minimum width */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border-radius: 5px; /* Rounded corners for the dropdown */
+    padding: 12px 0; /* Padding at the top and bottom */
+    z-index: 1; /* Ensure it's on top */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #333; /* Darker text color for better readability */
+    padding: 10px 20px; /* Comfortable padding */
+    text-decoration: none; /* No underline */
+    display: block; /* Block level links for easier click */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd; /* Light grey background on hover */
+}
+
+/* Optional: Adding a small arrow indicator */
+.dropbtn:after {
+    content: ' ▼'; /* Arrow down character */
+    margin-left: 5px; /* Small space after the button text */
+}
+
+</style>
 <body>
 
     <header class="header">
@@ -43,9 +98,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="ContactUs.php">Contact Us</a>
             <a href="logout.php">Logout</a>
 
-            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') : ?>
-                <a href="dashboard.php">Dashboard</a>
-            <?php endif; ?>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+            <!-- Dropdown for admin -->
+            <div class="dropdown">
+                <button class="dropbtn">Dashboard</button>
+                <div class="dropdown-content">
+                    <a href="dashboard.php">User Dashboard</a>
+                    <a href="dashboard_funfacts.php">Fun Facts Dashboard</a>
+                    <a href="admin_dashboard.php">Animal Dashboard</a>
+                </div>
+            </div>
+        <?php endif; ?>
 
         </nav>
     </header>
@@ -82,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php
             echo "Welcome, " . $_SESSION['username'];
             if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
-                echo ' | <a href="dashboard.php">Dashboard</a>';
+                echo ' (Admin)';
             }
             ?>
         </div>
@@ -91,6 +154,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdown = document.querySelector('.dropdown');
+            var dropdownContent = document.querySelector('.dropdown-content');
+
+            dropdown.onclick = function(event) {
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+                event.stopPropagation();
+            };
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    dropdownContent.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>

@@ -8,14 +8,30 @@
 </head>
 <style>
     body {
-        background-color: rgb(136, 183, 206);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-    }
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            margin: 0;
+        }
+
+        .navigation a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+    
 
     table {
         border-collapse: collapse;
@@ -86,6 +102,12 @@
 </style>
 
 <body>
+<header class="header">
+        <h2 class="logo">PawPlanet Admin</h2>
+        <nav class="navigation">
+            <a href="login.php">View Home</a>
+        </nav>
+    </header>
     <table border="1">
         <tr>
             <th>ID</th>
