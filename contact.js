@@ -17,7 +17,7 @@ function validateContactForm() {
         return false;
     }
 
-    var mobileNumberRegex = /^\d{10}$/;
+    var mobileNumberRegex = /^\d{9}$/;
     if (!mobileNumberRegex.test(mobileNumber)) {
         alert('Please enter a valid 10-digit mobile number.');
         return false;

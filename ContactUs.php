@@ -68,20 +68,20 @@ if (!isset($_SESSION['username'])) {
     <h2>Send a Message</h2>
     <div class="formBox">
     <div class="inputBox w50">
-        <input type="text " id="Nameinput"  required>
+        <input type="text " id="Nameinput" name="name"  required>
         <span>First Name</span>
     </div>
     <div class="inputBox w50">
         <div>
-        <input type="text" id="Lastinput"  required>
+        <input type="text" id="Lastinput"  name="surname" required>
         <span>Last Name</span>
     </div>
     <div class="inputBox w50">
-        <input type="text" id="EmailInput"  required>
+        <input type="text" id="EmailInput" name="email" required>
         <span>Email Adress</span>
     </div>
     <div class="inputBox w50">
-        <input type="text" id="Mobileinput"  required>
+        <input type="text" id="Mobileinput" name required>
         <span>Mobile Number</span>
     </div>
     <div class="inputBox w100">
@@ -89,7 +89,7 @@ if (!isset($_SESSION['username'])) {
         <span>Write your message here....</span>
     </div>
     <div class="inputBox w100">
-        <button type="submit"  class="btn" onclick="validateContactForm()">Send</button>
+        <button type="submit"  class="btn" name="contactBtn" onclick="validateContactForm()">Send</button>
      </div>
      </div>  
     </div>
@@ -108,6 +108,7 @@ if (!isset($_SESSION['username'])) {
     
         </div>
     </div>
+    <?php include_once 'RegisterController.php';?>
   
     <div class="footermain">
       <div class="footerleft" style="margin-left: 20px;">

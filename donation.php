@@ -17,7 +17,42 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.7.0/dist/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="donationstyle.css">
 </head>
+
+<script>
+    function validateForm() {
+    var form = document.forms[0];
+    var fields = ['fullName', 'email', 'address', 'city', 'state', 'zipCode', 'nameOnCard', 'creditCardNumber', 'expMonth', 'expYear', 'cvv'];
+
+    for (var i = 0; i < fields.length; i++) {
+        var fieldName = fields[i];
+        var fieldValue = form[fieldName].value.trim();
+
+        if (!fieldValue) {
+            alert('Please fill in all the required fields.');
+            return false;
+        }
+    }
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email.value.trim())) {
+        alert('Invalid email format.');
+        return false;
+    }
+
+    var creditCardRegex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+    if (!creditCardRegex.test(form.creditCardNumber.value.trim())) {
+        alert('Invalid credit card number format. Please use the format: 1111-2222-3333-4444');
+        return false;
+    }
+
+
+    alert('Form successfully validated!');
+    return true;
+}
+
+</script>
 <body>
+    
     <header class="header">
         <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon>Planet</h2>
         <nav class="navigation">
@@ -31,40 +66,40 @@ if (!isset($_SESSION['username'])) {
         </nav>
     </header>
     <div class="container">
-        <form action="">
+    <form action="#" method="post">
         <div class="row">
             <div class="col">
                 <h3 class="title">Billing address</h3>
 
                 <div class="inputBox">
                     <span>Full name :</span>
-                    <input type="text" placeholder="Erza Shala">
+                    <input type="text" name="fullName" placeholder="Erza Shala">
                 </div>
 
                 <div class="inputBox">
                     <span>Email :</span>
-                    <input type="email" placeholder="example@example.com">
+                    <input type="email" name="email" placeholder="example@example.com">
                 </div>
 
                 <div class="inputBox">
                     <span>Address :</span>
-                    <input type="text" placeholder="room - street - locality">
+                    <input type="text"  name="address" placeholder="room - street - locality">
                 </div>
 
                 <div class="inputBox">
                     <span>City :</span>
-                    <input type="text" placeholder="Prishtine">
+                    <input type="text"  name="city"  placeholder="Prishtine">
                 </div>
 
                 <div class="flex">
                 <div class="inputBox">
                     <span>State :</span>
-                    <input type="text" placeholder="Kosove">
+                    <input type="text" name="state" placeholder="Kosove">
                 </div>
 
                 <div class="inputBox">
                     <span>Zip code :</span>
-                    <input type="text" placeholder="10000">
+                    <input type="text"  name="zipCode" placeholder="10000">
                 </div>
 
                 </div>
@@ -80,25 +115,25 @@ if (!isset($_SESSION['username'])) {
                     </div>
                     <div class="inputBox">
                         <span>name on card :</span>
-                        <input type="text" placeholder="miss. Erza Shala">
+                        <input type="text"  name="nameOnCard" placeholder="miss. Erza Shala">
                     </div>
                     <div class="inputBox">
                         <span>credit card number :</span>
-                        <input type="number" placeholder="1111-2222-3333-4444">
+                        <input type="text" name="creditCardNumber" placeholder="1111-2222-3333-4444">
                     </div>
                     <div class="inputBox">
                         <span>exp month :</span>
-                        <input type="text" placeholder="january">
+                        <input type="text"  name="expMonth" placeholder="january">
                     </div>
     
                     <div class="flex">
                         <div class="inputBox">
                             <span>exp year :</span>
-                            <input type="number" placeholder="2022">
+                            <input type="number" name="expYear" placeholder="2022">
                         </div>
                         <div class="inputBox">
                             <span>CVV :</span>
-                            <input type="text" placeholder="1234">
+                            <input type="text"  name="cvv" placeholder="1234">
                         </div>
                     </div>
     
@@ -106,7 +141,8 @@ if (!isset($_SESSION['username'])) {
         
             </div>
     
-            <input type="submit" value="proceed to checkout" class="submit-btn">
+            <input type="submit" value="proceed to checkout" class="submit-btn" onclick="return validateForm()">
+
     
         </form>
     
