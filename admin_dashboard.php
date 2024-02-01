@@ -1,81 +1,42 @@
 <?php
-
 include 'AnimalDatabase.php';
 $db = new AnimalDatabase();
 
+// add/edit/delete form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
+    $name = $_POST["name"] ?? '';
+    $category = $_POST["category"] ?? '';
+    $description = $_POST["description"] ?? '';
+    $image_url = $_POST["image_url"] ?? '';
+    $id = $_POST["id"] ?? null; // Get ID if set
 
-$servername = "localhost";
-$username = "root"; // Replace with your username
-$password = ""; // Replace with your password (empty string for XAMPP default)
-$dbname = "animals";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Function to add a new animal
-function addAnimal($conn, $name, $category, $description, $image_url) {
-    $stmt = $conn->prepare("INSERT INTO animal_details (name, category, description, image_url) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $name, $category, $description, $image_url);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Function to delete an animal
-function deleteAnimal($conn, $id) {
-    $stmt = $conn->prepare("DELETE FROM animal_details WHERE id = ?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Function to update an animal
-function updateAnimal($conn, $id, $name, $category, $description, $image_url) {
-    $stmt = $conn->prepare("UPDATE animal_details SET name = ?, category = ?, description = ?, image_url = ? WHERE id = ?");
-    $stmt->bind_param("ssssi", $name, $category, $description, $image_url, $id);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Function to get all animals
-function getAnimals($conn) {
-    $sql = "SELECT id, name, category, description, image_url FROM animal_details";
-    $result = $conn->query($sql);
-    return $result;
+    switch ($_POST['action']) {
+        case 'add':
+            $db->addAnimal($name, $category, $description, $image_url);
+            break;
+        case 'edit':
+            if ($id) {
+                $db->updateAnimal($id, $name, $category, $description, $image_url);
+                // Redirect to clear edit mode
+                header('Location: admin_dashboard.php');
+                exit;
+            }
+            break;
+        case 'delete':
+            if ($id) {
+                $db->deleteAnimal($id);
+            }
+            break;
+    }
 }
 
 // Check if we are editing an animal
 $editingAnimal = null;
 if (isset($_GET['edit']) && is_numeric($_GET['edit'])) {
     $editId = $_GET['edit'];
-    $editQuery = "SELECT * FROM animal_details WHERE id = $editId";
-    $result = $conn->query($editQuery);
-    if ($result->num_rows > 0) {
-        $editingAnimal = $result->fetch_assoc();
-    }
-}
+    $editingAnimal = $db->getAnimalById($editId); 
 
-// Handling add/edit/delete form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
-    $name = $_POST["name"] ?? '';
-    $category = $_POST["category"] ?? '';
-    $description = $_POST["description"] ?? '';
-    $image_url = $_POST["image_url"] ?? '';
-
-    if ($_POST['action'] == 'add') {
-        addAnimal($conn, $name, $category, $description, $image_url);
-    } elseif ($_POST['action'] == 'edit' && isset($_POST['id'])) {
-        updateAnimal($conn, $_POST['id'], $name, $category, $description, $image_url);
-    } elseif ($_POST['action'] == 'delete' && isset($_POST['id'])) {
-        deleteAnimal($conn, $_POST['id']);
-    }
-}
-
-$animals = getAnimals($conn);
+$animals = $db->getAnimals();
 ?>
 
 <!DOCTYPE html>
@@ -202,27 +163,6 @@ $animals = getAnimals($conn);
     background-color: #c9302c;
 }
 
-
-.goback-btn  {
-            display: inline-block;
-            margin-right:93%;
-            padding: 10px 20px;
-            font-size: 16px;
-            text-align: right;
-            text-decoration: none;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-        }
-
-       
-        .goback-btn:hover {
-            background-color: #45a049;
-        }
-
-
 </style>
 <body>
     <header class="header">
@@ -230,9 +170,8 @@ $animals = getAnimals($conn);
         <nav class="navigation">
             <a href="collection.php">View Collection</a>
         </nav>
-        <a href="Login.php" class="goback-btn">Go Back</a>
     </header>
-    
+
     <main>
         <div class="admin-section">
             <h3><?php echo $editingAnimal ? 'Edit Animal' : 'Add New Animal'; ?></h3>

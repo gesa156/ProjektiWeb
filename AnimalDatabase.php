@@ -1,8 +1,8 @@
 <?php
 class AnimalDatabase {
     private $servername = "localhost";
-    private $username = "root"; // Replace with your username
-    private $password = ""; // Replace with your password (empty string for XAMPP default)
+    private $username = "root"; 
+    private $password = "";
     private $dbname = "animals";
     private $conn;
 
@@ -23,12 +23,18 @@ class AnimalDatabase {
         $stmt->close();
     }
 
-    public function deleteAnimal($id) {
-        $stmt = $this->conn->prepare("DELETE FROM animal_details WHERE id = ?");
+    public function getAnimalById($id) {
+        $stmt = $this->conn->prepare("SELECT * FROM animal_details WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
-        $stmt->close();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
     }
+    
 
     public function updateAnimal($id, $name, $category, $description, $image_url) {
         $stmt = $this->conn->prepare("UPDATE animal_details SET name = ?, category = ?, description = ?, image_url = ? WHERE id = ?");
@@ -37,6 +43,16 @@ class AnimalDatabase {
         $stmt->close();
     }
 
+    public function updateFunFact($id, $funfact) {
+        $stmt = $this->conn->prepare("UPDATE animal_details SET funfact = ? WHERE id = ?");
+        $stmt->bind_param("si", $funfact, $id);
+        $stmt->execute();
+        $stmt->close();
+    }
+    public function fetchFacts() {
+        $result = $this->conn->query("SELECT id, name, category, description, image_url, funfact FROM animal_details");
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function getAnimals() {
         $sql = "SELECT id, name, category, description, image_url FROM animal_details";
         $result = $this->conn->query($sql);
@@ -47,4 +63,5 @@ class AnimalDatabase {
         $this->conn->close();
     }
 }
+
 ?>

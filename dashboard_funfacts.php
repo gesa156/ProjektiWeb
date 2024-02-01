@@ -1,42 +1,20 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "animals";
+include 'AnimalDatabase.php'; 
+$db = new AnimalDatabase();
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-$funfact = $_POST['funfact'] ?? '';
-$id = $_POST['id'] ?? '';
-
-// Handle 'edit' action
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     $action = $_POST['action'];
+    $funfact = $_POST['funfact'] ?? '';
+    $id = $_POST['id'] ?? '';
 
     if ($action == 'edit' && $id) {
-        $stmt = $conn->prepare("UPDATE animal_details SET funfact = ? WHERE id = ?");
-        $stmt->bind_param("si", $funfact, $id);
-        $stmt->execute();
-        $stmt->close();
-        header('Location: dashboard_funfacts.php');
+        $db->updateFunFact($id, $funfact);
+        header('Location: dashboard_funfacts.php'); 
         exit;
     }
 }
 
-function fetchFacts($conn) {
-    $result = $conn->query("SELECT id, name, category, description, image_url, funfact FROM animal_details");
-    return $result->fetch_all(MYSQLI_ASSOC);
-}
-
-$facts = fetchFacts($conn);
+$facts = $db->fetchFacts();
 ?>
 <!DOCTYPE html>
 <html lang="en">
