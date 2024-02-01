@@ -316,10 +316,10 @@ width: 300px;
         <h2 style="margin-left: 20px;">About PawPlanet</h2>
         <h2>Our Links</h2>
         <div class="ff">
-            <a href=""><img src="facebook.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="twitter.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="instagram.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="pinterest.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images\facebook.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images\twitter.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images\instagram.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images\pinterest.png" alt="" width="32px" height="32px"></a>
     
         </div>
     </div>

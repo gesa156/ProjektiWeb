@@ -1,22 +1,22 @@
-
-
-*{
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- font-family: 'Poppins', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
+
 .logo {
     display: flex;
     align-items: center;
-  }
+}
 
-  .logo ion-icon {
+.logo ion-icon {
     font-size: 45px;
     margin-right: 0%;
     transform: rotate(10deg);
-  }
-body{
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,15 +39,15 @@ body{
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-  }
+}
 
- .logo {
+.logo {
     font-size: 2em;
     color: white;
     user-select: none;
 }
 
- .navigation a {
+.navigation a {
     position: relative;
     font-size: 1.1em;
     color: #fff;
@@ -56,7 +56,7 @@ body{
     margin-left: 40px;
 }
 
- .navigation a::after{
+.navigation a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -65,22 +65,23 @@ body{
     height: 3px;
     background: #fff;
     border-radius: 5px;
-    transform-origin:right ;
+    transform-origin: right;
     transform: scaleX(0);
     transition: transform.5s;
-} 
+}
 
 .navigation a:hover::after {
     transform-origin: left;
     transform: scaleX(1);
 
 }
- .navigation .btnLogin-popup {
+
+.navigation .btn {
     width: 130px;
     height: 50px;
     background: transparent;
     border: 2px solid #fff;
-    outline:none;
+    outline: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1.1em;
@@ -90,58 +91,58 @@ body{
     transition: .5s;
 }
 
-.navigation .btnLogin-popup:hover { 
+.navigation .btnLogin-popup:hover {
     background: #fff;
-    color:black;
+    color: black;
 }
 
 
 
-.cc{
-position: relative;
-width: 400px;
-height: 440px;
-background: transparent;
-border: 2px solid rgba(255,255,255,5);
-border-radius: 20px;
-backdrop-filter: blur(20px);
-box-shadow: 0 0 30px rgba(0,0,0, .5);
-display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
-transform: scale(0);
-transition: height 2s ease;
+.cc {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: height 2s ease;
 }
 
-.cc.active-popup{
+.cc.active-popup {
     transform: scale(1);
 
 }
 
-.cc .form-box.login{
+.cc .form-box.login {
 
     display: none;
 }
 
-.cc.active{
+.cc.active {
     height: 520px;
 }
 
-.cc .form-box{
-width: 100%;
-padding: 40px;
+.cc .form-box {
+    width: 100%;
+    padding: 40px;
 }
 
-.cc .form-box.login{
-        transition: transform .18s ease;
-        transform: translateX(0);
-      }
+.cc .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
 
-.cc.active .form-box.login{
-transition: none;
- transform: translateX(-400px);
-   
+.cc.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+
 }
 
 .cc .form-box.register {
@@ -150,15 +151,16 @@ transition: none;
     transform: translateX(400px);
 
 }
-.cc.active .form-box.register{
+
+.cc.active .form-box.register {
     transition: transform.18s ease;
     transform: translateX(0);
-       
-    }
+
+}
 
 
 
-.cc .icon-close{
+.cc .icon-close {
     position: absolute;
     top: 0;
     right: 0;
@@ -172,42 +174,44 @@ transition: none;
     align-items: center;
     border-bottom-left-radius: 20px;
     z-index: 1;
-    cursor: pointer; 
-  }
-.form-box h2{
+    cursor: pointer;
+}
+
+.form-box h2 {
 
     font-size: 1em;
     text-align: center;
     color: black;
 }
 
-.input-box{
-position: relative;
-width: 100%;
-height: 50px;
-border-bottom: 2px solid black;
-margin: 30px 0;
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
 
 }
 
-.input-box label{
-position: absolute;
-top: 50%;
-left: 5px;
-transform: translateY(-50%);
-font-size: lem;
-color: black;
-font-weight: 500;
-pointer-events: none;
-transition: 3s;
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: lem;
+    color: black;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 3s;
 }
+
 .input-box input:focus~label,
-.input-box input:valid~label{
+.input-box input:valid~label {
     top: -5px;
 }
 
 
-.input-box input{
+.input-box input {
 
     width: 100%;
     height: 100%;
@@ -220,17 +224,17 @@ transition: 3s;
     padding: 0 35px 0 5px;
 }
 
-.input-box .icon{
+.input-box .icon {
 
-position: absolute;
-right: 8px;
-font-size: 1.2em;
-color: black;
-line-height: 57px;
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: black;
+    line-height: 57px;
 
 }
 
-.remember-forget{
+.remember-forget {
     font-size: .9em;
     color: black;
     font-weight: 500;
@@ -240,38 +244,38 @@ line-height: 57px;
 }
 
 
-.remember-forget label input{
-    accent-color:black;
+.remember-forget label input {
+    accent-color: black;
     margin-right: 3px;
 }
 
-.remember-forget a{
+.remember-forget a {
 
     color: black;
     text-decoration: none;
 }
 
-.remember-forget a:hover{
+.remember-forget a:hover {
 
     text-decoration: underline;
 }
 
-.btn{
+.btn {
 
-width: 100%;
-height: 45px;
-background-color: black;
-border: none;
-outline: none;
-border-radius: 6px;
-cursor: pointer;
-font-size: 1em;
-color: #fff;
-font-weight: 500;
+    width: 100%;
+    height: 45px;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
 
 }
 
-.login-register{
+.login-register {
 
     font-size: .9em;
     color: black;
@@ -281,18 +285,19 @@ font-weight: 500;
 
 }
 
-.login-register p a{
+.login-register p a {
 
-color: black;
-text-decoration: none;
-font-weight: 600;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
 
 
 }
+
 .form-box.register h2 {
     font-size: 24px;
-    color:black;
-    nav-down: auto; 
+    color: black;
+    nav-down: auto;
 }
 
 
@@ -321,7 +326,7 @@ font-weight: 600;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
- .cover .btn {
+.cover .btn {
     margin: 8px;
     padding: 8px;
     font-family: 'Georgia', serif;

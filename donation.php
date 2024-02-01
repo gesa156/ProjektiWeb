@@ -6,8 +6,35 @@ if (!isset($_SESSION['username'])) {
     echo '<script>alert("Please log in to access this page."); window.location.href = "login.php";</script>';
     exit();
 }
-?>
 
+if (isset($_POST['donateBtn'])) {
+   
+    if (empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['email']) || empty($_POST['amount'])) {
+        echo "Please fill in all the required fields!";
+    } else {
+       
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $amount = $_POST['amount'];
+
+        if (isset($_SESSION['username']) && isset($_POST['email']) && $_SESSION['email'] != $_POST['email']) {
+            echo "Donation email must match the logged-in user's email.";
+            exit();
+        }
+        
+
+        include_once 'DonationRepository.php';
+        include_once 'donationn.php';
+
+        $donation = new Donation(null, $firstname, $lastname, $email, $amount);
+        $donationRepository = new DonationRepository();
+
+        $donationRepository->insertDonation($donation);
+        echo "Donation successful!";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,40 +44,37 @@ if (!isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ionicons@5.7.0/dist/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="donationstyle.css">
 </head>
-
 <script>
-    function validateForm() {
-    var form = document.forms[0];
-    var fields = ['fullName', 'email', 'address', 'city', 'state', 'zipCode', 'nameOnCard', 'creditCardNumber', 'expMonth', 'expYear', 'cvv'];
+        function validateForm() {
+            var form = document.forms[0];
+            var fields = ['firstname', 'lastname', 'email', 'city', 'state', 'nameOnCard', 'creditCardNumber', 'expMonth', 'expYear', 'cvv'];
 
-    for (var i = 0; i < fields.length; i++) {
-        var fieldName = fields[i];
-        var fieldValue = form[fieldName].value.trim();
+            for (var i = 0; i < fields.length; i++) {
+                var fieldName = fields[i];
+                var fieldValue = form[fieldName].value.trim();
 
-        if (!fieldValue) {
-            alert('Please fill in all the required fields.');
-            return false;
+                if (!fieldValue) {
+                    alert('Please fill in all the required fields.');
+                    return false;
+                }
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(form.email.value.trim())) {
+                alert('Invalid email format.');
+                return false;
+            }
+
+            var creditCardRegex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+            if (!creditCardRegex.test(form.creditCardNumber.value.trim())) {
+                alert('Invalid credit card number format. Please use the format: 1111-2222-3333-4444');
+                return false;
+            }
+
+            alert('Form successfully validated!');
+            return true;
         }
-    }
-
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email.value.trim())) {
-        alert('Invalid email format.');
-        return false;
-    }
-
-    var creditCardRegex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
-    if (!creditCardRegex.test(form.creditCardNumber.value.trim())) {
-        alert('Invalid credit card number format. Please use the format: 1111-2222-3333-4444');
-        return false;
-    }
-
-
-    alert('Form successfully validated!');
-    return true;
-}
-
-</script>
+    </script>
 <body>
     
     <header class="header">
@@ -65,41 +89,37 @@ if (!isset($_SESSION['username'])) {
         <a href="logout.php" >Logout</a>
         </nav>
     </header>
-    <div class="container">
-    <form action="#" method="post">
+    <div class="container"> 
+    <form action="#" method="post" >
         <div class="row">
             <div class="col">
                 <h3 class="title">Billing address</h3>
 
                 <div class="inputBox">
-                    <span>Full name :</span>
-                    <input type="text" name="fullName" placeholder="Erza Shala">
+                    <span>First name :</span>
+                    <input type="text" name="firstname" placeholder="Erza " required>
+                </div>
+
+                <div class="inputBox">
+                    <span>Last name :</span>
+                    <input type="text" name="lastname" placeholder="Shala" required>
                 </div>
 
                 <div class="inputBox">
                     <span>Email :</span>
-                    <input type="email" name="email" placeholder="example@example.com">
+                    <input type="email" name="email" placeholder="example@example.com" required>
                 </div>
 
-                <div class="inputBox">
-                    <span>Address :</span>
-                    <input type="text"  name="address" placeholder="room - street - locality">
-                </div>
-
+    
                 <div class="inputBox">
                     <span>City :</span>
-                    <input type="text"  name="city"  placeholder="Prishtine">
+                    <input type="text"  name="city"  placeholder="Prishtine" required>
                 </div>
 
                 <div class="flex">
                 <div class="inputBox">
                     <span>State :</span>
-                    <input type="text" name="state" placeholder="Kosove">
-                </div>
-
-                <div class="inputBox">
-                    <span>Zip code :</span>
-                    <input type="text"  name="zipCode" placeholder="10000">
+                    <input type="text" name="state" placeholder="Kosove" required>
                 </div>
 
                 </div>
@@ -111,25 +131,25 @@ if (!isset($_SESSION['username'])) {
     
                     <div class="inputBox">
                         <span>cards accepted :</span>
-                        <img src="card_img.png" alt="">
+                        <img src="images\card_img.png" alt="">
                     </div>
                     <div class="inputBox">
                         <span>name on card :</span>
-                        <input type="text"  name="nameOnCard" placeholder="miss. Erza Shala">
+                        <input type="text"  name="nameOnCard" placeholder="miss. Erza Shala" required>
                     </div>
                     <div class="inputBox">
                         <span>credit card number :</span>
-                        <input type="text" name="creditCardNumber" placeholder="1111-2222-3333-4444">
+                        <input type="text" name="creditCardNumber" placeholder="1111-2222-3333-4444" required>
                     </div>
                     <div class="inputBox">
                         <span>exp month :</span>
-                        <input type="text"  name="expMonth" placeholder="january">
+                        <input type="text"  name="expMonth" placeholder="january" required>
                     </div>
     
                     <div class="flex">
                         <div class="inputBox">
                             <span>exp year :</span>
-                            <input type="number" name="expYear" placeholder="2022">
+                            <input type="number" name="expYear" placeholder="2022" required>
                         </div>
                         <div class="inputBox">
                             <span>CVV :</span>
@@ -141,11 +161,9 @@ if (!isset($_SESSION['username'])) {
         
             </div>
     
-            <input type="submit" value="proceed to checkout" class="submit-btn" onclick="return validateForm()">
-
-    
+            <input type="submit" value="proceed to checkout" class="submit-btn" name="donateBtn" onclick="return validateForm()" >
         </form>
-    
+       
     </div>    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -154,10 +172,10 @@ if (!isset($_SESSION['username'])) {
         <h2 style="margin-left: 20px;">About PawPlanet</h2>
         <h2>Our Links</h2>
         <div class="ff">
-            <a href=""><img src="facebook.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="twitter.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="instagram.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="pinterest.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images\facebook.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images\twitter.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images\instagram.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images\pinterest.png" alt="" width="32px" height="32px"></a>
     
         </div>
     </div>
