@@ -36,7 +36,7 @@ if (isset($_GET['edit']) && is_numeric($_GET['edit'])) {
     $editId = $_GET['edit'];
     $editingAnimal = $db->getAnimalById($editId); 
 
-$animals = $db->getAnimals();
+$animals = $db->getAnimals();}
 ?>
 
 <!DOCTYPE html>

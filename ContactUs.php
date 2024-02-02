@@ -16,17 +16,19 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title> 
     <link rel="stylesheet" href="Contact.css">
+
     <script src="contact.js"></script>
 </head>
 
 <header class="header">
 <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon>Planet</h2>
     <nav class="navigation">
+    <a href="Home.php">Home</a>
+    <a href="AboutUs.php">About us</a>
         <a href="collection.php">Collections</a>
         <a href="funfacts.php">Fun Facts</a>
-        <a href="donation.php">Donate</a>
         <a href="ContactUs.php">Contact Us</a>
-        <a href="Home.php">Home</a>
+        <a href="donation.php">Donate</a>
         <button class="btnLogin-popup" style="display:none;" >Login</button>
         <a href="logout.php" >Logout</a>
 
@@ -42,26 +44,26 @@ if (!isset($_SESSION['username'])) {
 <h2>Contact Info</h2>
 <ul class="info">
     <li>
-         <span><img src="location_535239.png" width="20px" height="30px"></span>
+         <span><img src="images/location_535239.png" width="20px" height="30px"></span>
         <span>438 Mehmet Gradica<br>
           Kosovo,<br>30000</span>
     </li>
 
     <li>
-        <span><img src="mail.jpg"></span>
+        <span><img src="images/mail.jpg"></span>
        <span>pawplanet@gmail.com</span> 
    </li>
    <li>
-    <span><img src="phone.png"></span>
+    <span><img src="images/phone.png"></span>
    <span>049-333-999</span> <br><br>
 </li>
 </ul>
 </div>
 <ul class="sci">
-    <li><a href="#"><img src="facebook.png" ></a></li>
-    <li><a href="#"><img src="instagram.png" ></a></li>
-    <li><a href="#"><img src="pinterest.png" ></a></li>
-    <li><a href="#"><img src="twitter.png" ></a></li>
+    <li><a href="#"><img src="images/facebook.png" ></a></li>
+    <li><a href="#"><img src="images/instagram.png" ></a></li>
+    <li><a href="#"><img src="images/pinterest.png" ></a></li>
+    <li><a href="#"><img src="images/twitter.png" ></a></li>
 </ul>
   </div>
   <div class="contactForm">
@@ -101,10 +103,10 @@ if (!isset($_SESSION['username'])) {
         <h2 style="margin-left: 20px;">About PawPlanet</h2>
         <h2>Our Links</h2>
         <div class="ff">
-            <a href=""><img src="facebook.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="twitter.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="instagram.png" alt="" width="32px" height="32px"></a>
-            <a href=""><img src="pinterest.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images/facebook.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images/twitter.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images/instagram.png" alt="" width="32px" height="32px"></a>
+            <a href=""><img src="images/pinterest.png" alt="" width="32px" height="32px"></a>
     
         </div>
     </div>

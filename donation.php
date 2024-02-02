@@ -21,7 +21,7 @@ if (isset($_POST['donateBtn'])) {
         if (isset($_SESSION['username']) && isset($_POST['email']) && $_SESSION['email'] != $_POST['email']) {
             echo "Donation email must match the logged-in user's email.";
             exit();
-        }
+        } 
         
 
         include_once 'DonationRepository.php';
@@ -80,11 +80,12 @@ if (isset($_POST['donateBtn'])) {
     <header class="header">
         <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon>Planet</h2>
         <nav class="navigation">
+            <a href="Home.php">Home</a>
+            <a href="AboutUs.php">About Us</a>
             <a href="collection.php">Collections</a>
             <a href="funfacts.php">Fun Facts</a>
-            <a href="donation.php">Donate</a>
             <a href="ContactUs.php">Contact Us</a>
-            <a href="Home.php">Home</a>
+            <a href="donation.php">Donate</a>
             <button class="btnLogin-popup" style="display:none;" >Login</button>
         <a href="logout.php" >Logout</a>
         </nav>

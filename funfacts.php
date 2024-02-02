@@ -46,6 +46,7 @@ $conn->close();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fun Facts</title>
   
+  
 </head>
 
 <style>
@@ -64,6 +65,8 @@ $conn->close();
     padding: 0;
     background-color:rgb(136, 183, 206);
     height: 100%;
+    background-position: unset;
+    min-height: unset;
   }
 
 
@@ -262,6 +265,27 @@ width: 300px;
   margin-right: 20px;
 }
 
+@media only screen and (max-width: 768px) {
+    .container {
+      padding: 0;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    .zoom-wrapper {
+      margin: 10px;
+      height: 300px;
+      width: 100%;
+    }
+
+  
+  }
+
 </style>
   
 
@@ -284,11 +308,12 @@ width: 300px;
   <header class="header">
   <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon>Planet</h2>
     <nav class="navigation">
+         <a href="Home.php">Home</a>
+         <a href="AboutUs.php">About Us</a>
         <a href="collection.php">Collections</a>
         <a href="funfacts.php">Fun Facts</a>
-        <a href="donation.php">Donate</a>
         <a href="ContactUs.php">Contact Us</a>
-        <a href="Home.php">Home</a>
+        <a href="donation.php">Donate</a>
         <button class="btnLogin-popup" style="display:none;" >Login</button>
         <a href="logout.php" >Logout</a>
 

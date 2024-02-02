@@ -123,6 +123,12 @@ main {
     color: black;
 }
 
+
+.latestphoto h3 {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #fff !important;
+}
 .fotografit .rubrika {
     width: calc(25% - 20px);
     margin: 15px;
@@ -155,11 +161,16 @@ main {
     border-radius: 0 0 16px 16px;
     text-align: center;
   }
-
 .img {
     width: 100%;
     height: 75%;
     background-size: 100% 100%;
+}
+
+
+.latestphoto:hover {
+    box-shadow: 0px 0px 10px rgba(254, 254, 254, 0.5);
+    cursor: pointer;
 }
 
 .views_date {
@@ -203,9 +214,7 @@ main {
     cursor: pointer;
 }
 
-.numrat button.active {
-    background-color: black;
-}
+
 
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
@@ -233,3 +242,65 @@ img {vertical-align: middle;}
   animation-duration: 1.5s;
 }
 
+@media only screen and (max-width: 768px) {
+    .fotografit {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    .rubrika {
+        height: auto;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 15px;
+        margin: 0;
+    }
+
+    .fotografit .rubrika {
+        width: 100%;
+        margin: 0;
+    }
+
+    .numrat {
+        display: flex;
+        justify-content: center;
+        width: 47%;
+        align-items: center;
+    }
+
+    .numrat button {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        border: none;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .bgfoto {
+        width: 100%;
+        height: 159px;
+        background-size: 100% 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -20%;
+    }
+
+    .slideshow-container {
+        width: 100%;
+        position: relative;
+        margin-top: 38%;
+    }
+}

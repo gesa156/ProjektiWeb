@@ -21,7 +21,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 
-// Database connection
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -57,6 +57,7 @@ function fetchAnimalsByCategory($conn, $category) {
 <html lang="en">
 <head>
     <title>Collection</title>
+    <link rel="stylesheet" href="styleee.css">
     <link rel="stylesheet" href="collectionstyle.css">
 </head>
 <style>
@@ -119,11 +120,12 @@ function fetchAnimalsByCategory($conn, $category) {
         
         <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon>Planet</h2>
         <nav class="navigation">
+            <a href="Home.php">Home</a>
+            <a href="AboutUs.php">About Us</a>
             <a href="collection.php">Collections</a>
             <a href="funfacts.php">Fun Facts</a>
-            <a href="donation.php">Donate</a>
             <a href="ContactUs.php">Contact Us</a>
-            <a href="Home.php">Home</a>
+            <a href="donation.php">Donate</a>
             <button class="btnLogin-popup" style="display:none;" >Login</button>
         <a href="logout.php" >Logout</a>
 
