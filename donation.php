@@ -141,7 +141,7 @@ if(isset($_POST['donateBtn'])) {
                         <img src="images\card_img.png" alt="">
                     </div>
                     <div class="inputBox">
-                        <span>name on card :</span>
+                        <span>Amount :</span>
                         <input type="text"  name="amount" placeholder="600" required>
                     </div>
                     <div class="inputBox">

@@ -57,31 +57,30 @@ $conn->close();
     font-family: 'Poppins', sans-serif;
   }
 
-  
-  
   body {
-    font-family: 'Arial', sans-serif;
+    display: unset;
     margin: 0;
     padding: 0;
-    background-color:rgb(136, 183, 206);
+    background-color: unset;
     height: 100%;
+    background: unset;
     background-position: unset;
     min-height: unset;
   }
 
-
   .wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: auto;
-  height: auto;
-  position: relative; 
-}
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: auto;
+    height: auto;
+    position: relative;
+  }
 
-main {
-  flex: 1;
-}
+  main {
+    flex: 1;
+    padding-top: 9rem;
+  }
 
 
   .header {
@@ -131,7 +130,7 @@ main {
     transform: scaleX(1);
   }
 
-  .navigation .btnLogout-popup {
+  .navigation .btnLogin-popup {
     width: 130px;
     height: 50px;
     background: transparent;
@@ -146,13 +145,13 @@ main {
     transition: .5s;
   }
 
-  .navigation .btnLogout-popup:hover {
+  .navigation .btnLogin-popup:hover {
     background: #fff;
     color: black;
   }
 
   .container {
-    max-width: 800px;
+    max-width: 85%;
     margin: 50px auto;
     text-align: center;
     padding: 20px;
@@ -196,17 +195,18 @@ main {
     transform: scale(1.05);
   }
 
-  button {
+  .sorting-buttons button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: black;
-    color: white;
+    background-color: #fff;
+    color: #000;
     border: none;
     border-radius: 5px;
+    border: 1px solid #000;
   }
 
-  button:hover {
+  .sorting-buttons button:hover {
     background-color: gray;
   }
 
@@ -215,55 +215,55 @@ main {
   }
 
   footer {
-    background-color:black;
+    background-color: black;
     color: white;
     padding: 20px;
-    
-}
 
-.f{
- display: flex;
- justify-content: space-between;
-  
-}
+  }
+
+  .f {
+    display: flex;
+    justify-content: space-between;
+
+  }
 
 
 
-.footermain{
-
+  .footermain {
     display: flex;
     color: white;
     justify-content: space-between;
-}
+  }
 
-.footerleft{
+  .footerleft {
+    text-align: left;
+    width: 300px;
+  }
 
-
-text-align: left;
-width: 300px;
-
-
- }
- .footercenter >p{
+  .footercenter>p {
     text-align: center;
     justify-content: center;
-    
-    
-}
-.footerright p{
-    text-align: right;
-}
 
-.fundi {
+
+  }
+
+  .footerright p {
+    text-align: right;
+  }
+
+  .fundi {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
     color: white;
-}
-.ff{
-  margin-right: 20px;
-}
+  }
+
+  .ff {
+    margin-right: 20px;
+  }
+
+
 
 @media only screen and (max-width: 768px) {
     .container {

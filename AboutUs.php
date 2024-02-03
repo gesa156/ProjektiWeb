@@ -350,9 +350,9 @@
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="team-3.jpg" alt="Team Member 1" class="member-image">
+                    <img src="images/team-3.jpg" alt="Team Member 1" class="member-image">
                     <div class="member-details">
-                        <div class="member-name">Fron Morina</div>
+                        <div class="member-name">Arlind Demaku</div>
                         <div class="member-role">Doctor</div>
                         <div class="social-media">
                             <a href="#">Facebook</a>
