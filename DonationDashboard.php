@@ -59,7 +59,7 @@
         text-align: left;
         padding: 12px;
     }
-
+ 
   
 
     .goback-btn {
@@ -98,8 +98,9 @@
             <th>LAST NAME</th>
             <th>EMAIL</th>
             <th>AMOUNT</th>
-            <th>EXP YEAR</th>
-            <th>CVV</th>
+           
+            
+            
             
         </tr>
         <?php
@@ -117,8 +118,8 @@
                     <td>{$donation['lastname']}</td>
                     <td>{$donation['email']}</td>
                     <td>{$donation['amount']}</td>
-                    <td>{$donation['expYear']}</td>
-                    <td>{$donation['cvv']}</td>
+                   
+                   
                    
                 </tr>
              ";

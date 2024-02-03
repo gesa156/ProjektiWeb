@@ -282,7 +282,20 @@ width: 300px;
       height: 300px;
       width: 100%;
     }
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .navigation a {
+        position: relative;
+        font-size: 1.1em;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 20px;
+    }
   
   }
 
@@ -361,7 +374,7 @@ width: 300px;
         <a href="donation.php"  style="color: white; margin-right: 150px;">Donation</a><br><br>
     
       </div>
-      
+                
       <div class="footerright" style="margin-right: 20px;">
           <p>Terms of use</p>
           <p>Privacy Policy</p>

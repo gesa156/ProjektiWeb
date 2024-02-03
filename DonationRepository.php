@@ -20,14 +20,13 @@ class DonationRepository {
         $lastname = $donation->getLastName();
         $email = $donation->getEmail();
         $amount = $donation->getAmount();
-        $expYear = $donation->getExpYear(); 
-        $cvv = $donation->getCvv(); 
+        $expYear = $donation->getExpYear(); // Add this line
+        $cvv = $donation->getCvv(); // Add this line
 
         $sql = "INSERT INTO donation (id, firstname, lastname, email, amount, expYear, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $statement = $conn->prepare($sql);
 
         $statement->execute([$id, $firstname, $lastname, $email, $amount, $expYear, $cvv]);
-
         echo "<script>alert('Donation has been inserted successfully!');</script>";
     }
 

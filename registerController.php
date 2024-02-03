@@ -11,7 +11,7 @@ if(isset($_POST['registerBtn'])){
         $password = $_POST['password'];
 
      
-        $user = new User(null, $username, $email, $password, 'some_value');
+        $user = new User(null, $username, $email, $password, 'user');
         $userRepository = new UserRepository();
 
         $userRepository->insertUser($user);

@@ -16,6 +16,7 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title> 
     <link rel="stylesheet" href="Contact.css">
+ 
 
     <script src="contact.js"></script>
 </head>
