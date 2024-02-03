@@ -274,24 +274,18 @@
             <div class="about-section">
                 <div class="left-section">
                     <h4 class="text-secondary">About Us</h4>
-                    <h1><span class="text-primary">Boarding</span> &amp; <span class="text-secondary">Daycare</span>
+                    <h1><span class="text-primary">Explore</span> the Animal Kingdom</span>
                     </h1>
-                    <p class="paragraph">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit
-                        rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat
-                        duo eos et erat sed diam duo</p>
-                    <div class="vertical-things">
-                        <div class="vertical-thing">&#x261B; Best In Industry</div>
-                        <div class="vertical-thing">&#x261B; Emergency Services</div>
-                        <div class="vertical-thing">&#x261B; 24/7 Customer Support</div>
-                    </div>
-                    <a href="#" class="button">Learn More</a>
+                    <p class="paragraph">The Amazon Rainforest, home to unparalleled biodiversity, is under threat. Join us in our mission to conserve its wildlife, protect habitats, and support the indigenous communities that depend on this vital ecosystem.</p>
+                    
+                    <a href="collection.php" class="button">Explore the Amazon</a>
                 </div>
 
                 <div class="right-section">
-                    <img src="images/about-1.jpg" alt="Main Image" class="main-image">
+                    <img src="https://www.shutterstock.com/image-photo/aerial-photo-river-amazon-rainforest-600nw-1677523960.jpg" alt="Main Image" class="main-image">
                     <div class="images-container">
-                        <img src="images/about-2.jpg" alt="Sub Image 1" class="sub-images">
-                        <img src="images/about-3.jpg" alt="Sub Image 2" class="sub-images">
+                        <img src="https://media.istockphoto.com/id/157375891/photo/scarlet-macaws.jpg?s=612x612&w=0&k=20&c=rrvMxRyLm77jcnmnrGtdOpw0PTxo8mkNOUA_hO3RO1g=" alt="Sub Image 1" class="sub-images">
+                        <img src="https://images.squarespace-cdn.com/content/v1/5c5a2aeb4d87119c580d4736/1675113525945-QJZ1CLNIXSPZM10SO8MY/IMG_3982.jpeg?format=1000w" alt="Sub Image 2" class="sub-images">
                     </div>
                 </div>
             </div>
@@ -299,35 +293,33 @@
     </section>
 
     <section>
-        <div class="why-choose-us-section">
-            <div class="left-section">
-                <img src="images/feature.jpg" alt="Background Image" style="width: 100%;">
-            </div>
-            <div class="right-section">
-                <h4 class="text-secondary">Why Choose Us?</h4>
-                <h1><span class="text-primary">Special Care</span> &amp; <span class="text-secondary">On Pets</span>
-                </h1>
-                <p class="paragraph">Dolor lorem lorem ipsum sit et ipsum. Sadip sea amet diam sed ut vero no
-                    sit.
-                    Et elitr stet sed sit sed kasd. Erat duo eos et erat sed diam duo</p>
+    <div class="why-choose-us-section">
+        <div class="left-section">
+        <img src="images/amazonn.jpg" alt="Conservation Efforts" style="width: 100%;">
+        </div>
+        <div class="right-section">
+            <h4 class="text-secondary">Why Support Us?</h4>
+            <h1><span class="text-primary">Dedicated Conservation</span> &amp; <span class="text-secondary">Education</span></h1>
+            <p class="paragraph">Join us in our commitment to preserve the Amazon Rainforest, a vital ecosystem that serves as the lungs of our planet. With unmatched dedication to conservation, research, and community education, we strive to protect the diversity of life and promote sustainable living.</p>
 
-                <div class="reasons">
-                    <div class="reason">
-                        &#x21d2; Best In Industry
-                    </div>
-                    <div class="reason">
-                        &#x21d2; Emergency Services
-                    </div>
-                    <div class="reason">
-                        &#x21d2; Special Care
-                    </div>
-                    <div class="reason">
-                        &#x21d2; Customer Support
-                    </div>
+            <div class="reasons">
+                <div class="reason">
+                    &#x21d2; Unmatched Conservation Efforts
+                </div>
+                <div class="reason">
+                    &#x21d2; Research & Rehabilitation
+                </div>
+                <div class="reason">
+                    &#x21d2; Educational Outreach
+                </div>
+                <div class="reason">
+                    &#x21d2; Community Empowerment
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section>
         <div class="team-section">

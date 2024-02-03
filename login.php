@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header class="header">
     <h2 class="logo"><ion-icon name="paw-sharp"></ion-icon>Planet</h2>
         <nav class="navigation">
-        <a href="Home.php">Collections</a>
+        <a href="Home.php">Home</a>
         <a href="AboutUs.php">About Us</a>
             <a href="collection.php">Collections</a>
             <a href="funfacts.php">Fun Facts</a>
