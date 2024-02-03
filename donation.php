@@ -7,34 +7,46 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
+
 if (isset($_POST['donateBtn'])) {
+    
+    $formFields = array('firstname', 'lastname', 'email', 'city', 'state', 'amount', 'creditCardNumber', 'expMonth', 'expYear', 'cvv');
+
    
-    if (empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['email']) || empty($_POST['amount'])) {
-        echo "Please fill in all the required fields!";
-    } else {
-       
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-        $email = $_POST['email'];
-        $amount = $_POST['amount'];
-
-        if (isset($_SESSION['username']) && isset($_POST['email']) && $_SESSION['email'] != $_POST['email']) {
-            echo "Donation email must match the logged-in user's email.";
+    foreach ($formFields as $field) {
+        if (!isset($_POST[$field]) || empty($_POST[$field])) {
+            echo "Error: $field is missing or empty.";
             exit();
-        } 
-        
-
-        include_once 'DonationRepository.php';
-        include_once 'donationn.php';
-
-        $donation = new Donation(null, $firstname, $lastname, $email, $amount);
-        $donationRepository = new DonationRepository();
-
-        $donationRepository->insertDonation($donation);
-        echo "Donation successful!";
+        }
+        $_POST[$field] = htmlspecialchars($_POST[$field]);
     }
+
+    include_once 'DonationRepository.php';
+    include_once 'donationn.php';
+
+  
+    $donation = new Donation(
+        null,
+        $_POST['firstname'],
+        $_POST['lastname'],
+        $_POST['email'],
+        $_POST['amount'],
+        $_POST['expYear'],
+        $_POST['cvv']
+    );
+
+    $donationRepository = new DonationRepository();
+
+    
+    $donationRepository->insertDonation($donation);
+    echo '<script>alert("Donation successful!"); window.location.href = "donation.php";</script>';
+    exit();
 }
+
+  
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +59,7 @@ if (isset($_POST['donateBtn'])) {
 <script>
         function validateForm() {
             var form = document.forms[0];
-            var fields = ['firstname', 'lastname', 'email', 'city', 'state', 'nameOnCard', 'creditCardNumber', 'expMonth', 'expYear', 'cvv'];
+            var fields = ['firstname', 'lastname', 'email', 'city', 'state', 'creditCardNumber', 'expMonth', 'expYear', 'cvv'];
 
             for (var i = 0; i < fields.length; i++) {
                 var fieldName = fields[i];
@@ -136,7 +148,7 @@ if (isset($_POST['donateBtn'])) {
                     </div>
                     <div class="inputBox">
                         <span>name on card :</span>
-                        <input type="text"  name="nameOnCard" placeholder="miss. Erza Shala" required>
+                        <input type="text"  name="amount" placeholder="500" required>
                     </div>
                     <div class="inputBox">
                         <span>credit card number :</span>

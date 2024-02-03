@@ -107,6 +107,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <a href="dashboard.php">User Dashboard</a>
                     <a href="dashboard_funfacts.php">Fun Facts Dashboard</a>
                     <a href="admin_dashboard.php">Animal Dashboard</a>
+                    <a href="DonationDashboard.php">Donation Dashboard</a>
+
                 </div>
             </div>
         <?php endif; ?>

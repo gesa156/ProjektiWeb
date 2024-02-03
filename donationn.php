@@ -6,13 +6,17 @@ class Donation {
     private $lastname;
     private $email;
     private $amount;
+    private $expYear;
+    private $cvv;
 
-    function __construct($id, $firstname, $lastname, $email, $amount) {
+    function __construct($id, $firstname, $lastname, $email, $amount, $expYear = null, $cvv = null) {
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
         $this->amount = $amount;
+        $this->expYear = $expYear;
+        $this->cvv = $cvv;
     }
 
     function getId() {
@@ -33,6 +37,14 @@ class Donation {
 
     function getAmount() {
         return $this->amount;
+    }
+
+    function getExpYear() {
+        return $this->expYear;
+    }
+
+    function getCvv() {
+        return $this->cvv;
     }
 }
 

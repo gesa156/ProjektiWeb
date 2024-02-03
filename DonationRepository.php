@@ -3,6 +3,7 @@
 include_once 'databaseConnection.php';
 include_once 'donationn.php';
 
+
 class DonationRepository {
     private $connection;
 
@@ -10,7 +11,6 @@ class DonationRepository {
         $conn = new DatabaseConnection();
         $this->connection = $conn->startConnection();
     }
-    
 
     function insertDonation($donation) {
         $conn = $this->connection;
@@ -20,11 +20,13 @@ class DonationRepository {
         $lastname = $donation->getLastName();
         $email = $donation->getEmail();
         $amount = $donation->getAmount();
+        $expYear = $donation->getExpYear(); 
+        $cvv = $donation->getCvv(); 
 
-        $sql = "INSERT INTO donation (id, firstname, lastname, email, amount) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO donation (id, firstname, lastname, email, amount, expYear, cvv) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $statement = $conn->prepare($sql);
 
-        $statement->execute([$id, $firstname, $lastname, $email, $amount]);
+        $statement->execute([$id, $firstname, $lastname, $email, $amount, $expYear, $cvv]);
 
         echo "<script>alert('Donation has been inserted successfully!');</script>";
     }
@@ -47,7 +49,6 @@ class DonationRepository {
 
         return $donation;
     }
-    
 }
 
 ?>
