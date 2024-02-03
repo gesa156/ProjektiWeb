@@ -33,59 +33,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styleee.css">
 </head>
 <style>
-   /* Style for the dropdown button */
+   
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-left: 20px; /* Add some space to the left */
+    margin-left: 20px;
 }
 
 .dropbtn {
-    background-color: #007bff; /* Aesthetic blue background */
-    color: white; /* White text */
-    padding: 12px 20px; /* Generous padding for a better button feel */
-    font-size: 16px; /* Font size */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners for the button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    background-color: #007bff; 
+    color: white; 
+    padding: 12px 20px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s;
 }
 
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #0056b3; /* Darker shade of blue on hover/focus */
+    background-color: #0056b3; 
 }
 
-/* Dropdown content (hidden by default) */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f8f9fa; /* Light background for the dropdown */
-    min-width: 200px; /* Minimum width */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    border-radius: 5px; /* Rounded corners for the dropdown */
-    padding: 12px 0; /* Padding at the top and bottom */
-    z-index: 1; /* Ensure it's on top */
+    background-color: #f8f9fa; 
+    min-width: 200px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    border-radius: 5px;
+    padding: 12px 0; 
+    z-index: 1; 
 }
 
-/* Links inside the dropdown */
+
 .dropdown-content a {
-    color: #333; /* Darker text color for better readability */
-    padding: 10px 20px; /* Comfortable padding */
-    text-decoration: none; /* No underline */
-    display: block; /* Block level links for easier click */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    color: #333; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    display: block; 
+    transition: background-color 0.3s;
 }
 
-/* Change color of dropdown links on hover */
+
 .dropdown-content a:hover {
-    background-color: #ddd; /* Light grey background on hover */
+    background-color: #ddd; 
 }
 
-/* Optional: Adding a small arrow indicator */
+
 .dropbtn:after {
-    content: ' ▼'; /* Arrow down character */
-    margin-left: 5px; /* Small space after the button text */
+    content: ' ▼'; 
+    margin-left: 5px; 
 }
+
+.form-container {
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(5px); 
+    border-radius: 10px; 
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18); 
+}
+
 
 </style>
 <body>
@@ -126,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php if (isset($error_message)) : ?>
                 <div class="error"><?php echo $error_message; ?></div>
             <?php else : ?>
-                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" onsubmit="return validateLoginForm();">
                     <div class="input-box">
                         <span class="icon"><ion-icon name="mail"></ion-icon></span>
                         <input type="email" id="emailInput" name="email" required>
@@ -134,12 +144,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
 
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <!---<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>-->
                         <input type="password" id="passwordInput" name="password" required>
                         <label>Password</label>
                     </div>
 
-                    <button type="submit" class="btn" name="Loginbtn">Login</button>
+                    <button type="submit" class="btn" name="Loginbtn" >Login</button>
                     <p>Don't have an account? <a href="register.php">Register</a></p>
                 </form>
             <?php endif; ?>
