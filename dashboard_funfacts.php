@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'AnimalDatabase.php'; 
 $db = new AnimalDatabase();
 
@@ -8,7 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     $id = $_POST['id'] ?? '';
 
     if ($action == 'edit' && $id) {
-        $db->updateFunFact($id, $funfact);
+        $username = $_SESSION['username'];
+        $db->updateFunFact($id, $funfact, $username);
         header('Location: dashboard_funfacts.php'); 
         exit;
     }
@@ -136,7 +138,8 @@ $facts = $db->fetchFacts();
             <p><strong>Category:</strong> <?php echo htmlspecialchars($fact['category']); ?></p>
             <p><strong>Description:</strong> <?php echo htmlspecialchars($fact['description']); ?></p>
             <p><strong>Current Fun Fact:</strong> <?php echo htmlspecialchars($fact['funfact']); ?></p>
-            
+            <p><strong>Last Modified By:</strong> <?php echo htmlspecialchars($fact['last_modified_by_funfact']); ?></p>
+
             <form method="post" class="animal-form">
                 <input type="hidden" name="action" value="edit">
                 <input type="hidden" name="id" value="<?php echo $fact['id']; ?>">

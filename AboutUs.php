@@ -331,7 +331,7 @@
 
     <section>
         <div class="team-section">
-            <h1><span class="text-primary">Meet Our</span> &amp; <span class="text-secondary">Team Members</span></h1>
+            <h1><span class="text-primary">Meet Our</span> <span class="text-secondary">Team Members</span></h1>
             <div class="team-member">
                 <div class="member-card">
                     <img src="images/team-1.jpg" alt="Team Member 1" class="member-image">
@@ -341,19 +341,19 @@
                         <div class="social-media">
                             <a href="#">Facebook</a>
                             <a href="#">Twitter</a>
-                            <!-- Add more social media links as needed -->
+                            
                         </div>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img src="team-2.jpg" alt="Team Member 1" class="member-image">
+                    <img src="images/team-2.jpg" alt="Team Member 1" class="member-image">
                     <div class="member-details">
-                        <div class="member-name">Landra Morina</div>
+                        <div class="member-name">Erza Shala</div>
                         <div class="member-role">Chef Executive</div>
                         <div class="social-media">
                             <a href="#">Facebook</a>
                             <a href="#">Twitter</a>
-                            <!-- Add more social media links as needed -->
+                            
                         </div>
                     </div>
                 </div>

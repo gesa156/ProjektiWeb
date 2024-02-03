@@ -1,6 +1,10 @@
 <?php
+session_start();
+
 include 'AnimalDatabase.php';
 $db = new AnimalDatabase();
+
+$lastModifiedBy = $db->getLastModifiedBy();
 
 // add/edit/delete form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
@@ -8,15 +12,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     $category = $_POST["category"] ?? '';
     $description = $_POST["description"] ?? '';
     $image_url = $_POST["image_url"] ?? '';
-    $id = $_POST["id"] ?? null; // Get ID if set
+    $id = $_POST["id"] ?? null; 
 
+   
+   
+    if (isset($_POST['action'])) {
+        
+        $username = $_SESSION['username'];
     switch ($_POST['action']) {
         case 'add':
-            $db->addAnimal($name, $category, $description, $image_url);
+            $db->addAnimal($name, $category, $description, $image_url, $username);
             break;
         case 'edit':
             if ($id) {
-                $db->updateAnimal($id, $name, $category, $description, $image_url);
+                
+                $db->updateAnimal($id, $name, $category, $description, $image_url, $username);
                 // Redirect to clear edit mode
                 header('Location: admin_dashboard.php');
                 exit;
@@ -29,14 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             break;
     }
 }
+}
 
 // Check if we are editing an animal
 $editingAnimal = null;
 if (isset($_GET['edit']) && is_numeric($_GET['edit'])) {
     $editId = $_GET['edit'];
     $editingAnimal = $db->getAnimalById($editId); 
+}
+$animals = $db->getAnimals();
 
-$animals = $db->getAnimals();}
+
 ?>
 
 <!DOCTYPE html>
@@ -204,6 +217,7 @@ $animals = $db->getAnimals();}
                         <input type="hidden" name="action" value="delete">
                         <input type="submit" value="Delete">
                     </form>
+                    <p>Last modified by: <?php echo htmlspecialchars($row['last_modified_by']); ?></p>
                 </div>
             <?php endwhile; ?>
         </div>
